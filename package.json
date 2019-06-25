@@ -1,0 +1,26 @@
+{
+  "name": "racoon-cart",
+  "version": "1.0.0",
+  "description": "grocery store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shyambhongle/racoon-cart.git"
+  },
+  "keywords": [
+    "grocery",
+    "ecommerce",
+    "react",
+    "node",
+    "mongodb"
+  ],
+  "author": "shyam bhongle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shyambhongle/racoon-cart/issues"
+  },
+  "homepage": "https://github.com/shyambhongle/racoon-cart#readme"
+}

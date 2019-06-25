@@ -1,0 +1,9 @@
+.Nav{
+  width: 100vw;
+  height: 90px;
+  display: flex;
+}
+
+.BrandLogo{
+  margin-left: 15px;
+}
