@@ -1,10 +1,15 @@
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import Header from './../component/header/header.js';
+import Section from './../component/section/section.js';
+
 
 class Router extends Component{
   render(){
     return(
-      <Header/>
+      <Fragment>
+        <Header/>
+        <Section/>
+      </Fragment>
     )
   }
 }

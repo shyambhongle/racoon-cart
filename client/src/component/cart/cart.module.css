@@ -1,0 +1,106 @@
+.CartWrapper{
+  width: 70px;
+  height: 100%;
+  position: relative;
+}
+
+.BlurOverlay{
+  width: 120vw;
+  height: 100%;
+  position: fixed;
+  z-index:1;
+  left: 0px;
+}
+
+
+.CartIcon{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 33%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.CartIcon img{
+  height: 40%;
+  width: 40%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.CartIcon p{
+  color: #333333;
+  font-size: 13px;
+  display: inline-block;
+  padding-top: 5px;
+  margin: 0px;
+  font-weight: bolder;
+}
+
+
+.CartContainer{
+  width:100vw;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  z-index: 10;
+  display: flex;
+  transition: visibility 1s linear;
+}
+
+.CartContainer .Overlay{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  position: absolute;
+  transition: opacity 0.500s ease-out;
+}
+
+
+.CartContent{
+  width: 37vw;
+  height: 100%;
+  background-color: rgb(247, 247, 247);
+  z-index: 10;
+  align-self: flex-end;
+  position: absolute;
+  right: 0px;
+  transition: transform 0.300s ease-out;
+}
+
+
+
+
+.CartContent .Header{
+  width: 100%;
+  height: 70px;
+  background-color: #ff6d00 ;
+  display: flex;
+  align-items: center;
+}
+
+.MycartTitle{
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.Close{
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  right: 4%;
+  cursor: pointer;
+}
