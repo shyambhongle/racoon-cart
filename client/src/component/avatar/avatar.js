@@ -1,16 +1,17 @@
 import React,{Component} from 'react';
 import styles from './avatar.module.css';
-
 import AvatarIcon from './../../assets/icons/avatar.svg';
 import CheckList from './../../assets/icons/list.svg';
 import Discount from './../../assets/icons/discount.svg';
 
-
+//Import components
+import Auth from './../auth/auth.js';
 
 class Avatar extends Component{
   state={
     isFocus:false,
-    isAuth:false
+    isAuth:false,
+    showAuth:false
   }
 
   onFocusHandler=()=>{
@@ -25,9 +26,23 @@ class Avatar extends Component{
     })
   }
 
+  showAuth=()=>{
+    this.setState({
+      showAuth:true,
+      isFocus:false,
+    })
+  }
+
+  closeAuth=()=>{
+    this.setState({
+      showAuth:false
+    })
+  }
+
   render(){
     return(
       <div className={styles.AvatarBox}>
+        {this.state.showAuth && <Auth clickHandler={this.closeAuth}/>}
       {this.state.isFocus && <div className={styles.BlurOverlay}
         onClick={this.onBlurHandler}></div>}
         <div className={styles.AvatarIcon} onClick={()=>{this.state.isFocus?this.onBlurHandler():this.onFocusHandler()}}>
@@ -38,7 +53,7 @@ class Avatar extends Component{
           <span className={styles.Locator}></span>
 
           <div className={styles.AuthButton}>
-          <button>Login or Sign Up</button>
+          <button onClick={this.showAuth}>Login or Sign Up</button>
           </div>
           <div className={styles.OtherButton}>
             <img src={CheckList} alt="Check list"/>

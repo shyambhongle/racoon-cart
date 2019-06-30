@@ -26,10 +26,12 @@ class Location extends Component{
   }
 
   cityHandler=(e)=>{
-    this.setState({
-      citySelected:e.target.attributes.name.textContent
-    });
-    this.onBlurHandler();
+    if (e.target.attributes.name.textContent!==undefined) {
+      this.setState({
+        citySelected:e.target.attributes.name.textContent
+      });
+      this.onBlurHandler();
+    }
   }
 
 
@@ -48,7 +50,7 @@ class Location extends Component{
               <span className={styles.IconArrow}></span>
               </div>
             </div>
-            
+
             {this.state.isFocus && <div className={styles.Conatiner}>
               <div className={styles.ContainerWrapper}>
                 <span className={styles.Locator}></span>

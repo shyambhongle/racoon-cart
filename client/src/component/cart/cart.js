@@ -1,9 +1,11 @@
 import React,{Component} from 'react';
 import styles from './cart.module.css';
+import {withRouter} from 'react-router-dom';
 
 import CartIcon from './../../assets/icons/cart.svg';
 import CloseIcon from './../../assets/icons/cancel.svg';
 
+import ProductList from './../product_list/productlist.js';
 
 
 class Cart extends Component{
@@ -38,6 +40,15 @@ class Cart extends Component{
               <span className={styles.MycartTitle}>My Cart</span>
               <img onClick={this.onBlurHandler} src={CloseIcon} alt="close" className={styles.Close}/>
             </div>
+            <div className={styles.CartList}>
+              <ProductList/>
+              <ProductList/>
+              <ProductList/>
+              <ProductList/>
+            </div>
+            <div className={styles.CheckOut}>
+              <button onClick={()=>{this.props.history.push('/checkout')}}>CheckOut</button>
+            </div>
           </div>
         </div>
       </div>
@@ -45,4 +56,4 @@ class Cart extends Component{
   }
 }
 
-export default Cart;
+export default withRouter(Cart);
