@@ -3,11 +3,16 @@ import {Route,Switch} from 'react-router-dom';
 import Header from './../component/header/header.js';
 import Section from './../component/section/section.js';
 import Checkout from './../component/checkout/checkout.js';
+import Cart from './../component/cart/cart.js';
+import Auth from './../component/auth/auth.js';
+import {connect} from 'react-redux';
 
 class Router extends Component{
   render(){
     return(
       <Fragment>
+        <Cart/>
+        {this.props.control.showAuth && <Auth/>}
         <Switch>
           <Route path='/checkout' exact component={Checkout}/>
           <Route path='/'  component={Header}/>
@@ -21,8 +26,10 @@ class Router extends Component{
 }
 
 
+const mapStateToProps=(state)=>({
+  control:state.flow
+})
 
 
 
-
-export default Router;
+export default connect(mapStateToProps)(Router);

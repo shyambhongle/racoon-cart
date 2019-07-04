@@ -41,6 +41,19 @@
   height: 7vh;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.Deactive .Header img{
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.Active .Header img{
+  display: none;
 }
 
 .Deactive .Header span{

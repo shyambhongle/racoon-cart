@@ -98,3 +98,12 @@
   display: inline;
   cursor: pointer;
 }
+.errorText{
+  color: red;
+  font-size: 12px;
+  width: 70%;
+  display: none;
+  margin:0px auto;
+  text-align: left;
+  transform: translateY(-10px);
+}

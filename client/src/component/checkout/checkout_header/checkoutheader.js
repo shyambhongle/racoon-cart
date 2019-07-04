@@ -3,6 +3,7 @@ import styles from './checkoutheader.module.css';
 import SmallLogo from './../../../assets/small.PNG';
 
 const CheckOutHeader =(props)=>{
+  console.log(props.test);
 
   const activeStyle={
     color:"#ff8f00 ",
@@ -13,9 +14,9 @@ const CheckOutHeader =(props)=>{
     <div className={styles.CheckOutHeader}>
       <img onClick={()=>{props.history.push('/')}} className={styles.SmallLogo} src={SmallLogo} alt="logo"/>
       <div className={styles.PlaceHolder}>
-        <div className={styles.Title} style={props.process===1?activeStyle:{}}>LOGIN</div>
+        <div className={props.test.email===""?styles.Title:styles.Done} style={props.process===1?activeStyle:{}}>LOGIN</div>
         <div className={styles.Divider}>-------</div>
-        <div className={styles.Title} style={props.process===2?activeStyle:{}}>ADDRESS</div>
+        <div className={props.test.address===""?styles.Title:styles.Done} style={props.process===2?activeStyle:{}}>ADDRESS</div>
         <div className={styles.Divider}>-------</div>
         <div className={styles.Title} style={props.process===3?activeStyle:{}}>PAYMENT</div>
       </div>

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import styles from './checkout.module.css';
-import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {showAuth} from './../../action/flow.js';
 
 //import Components
 import CheckOutHeader from './checkout_header/checkoutheader.js';
@@ -15,8 +16,23 @@ class Checkout extends Component{
     details:{
       email:"",
       address:""
-    }
+    },
+    isAuth:false,
   }
+
+  static getDerivedStateFromProps=(props,state)=>{
+    if (props.auth.isAuthenticated!==false){
+      return {
+        process:2,
+        details:{
+          email:props.auth.user.email,
+          address:state.details.address
+        }
+      }
+    }
+    return null;
+  }
+
 
   loginProcess=()=>{
     this.setState({
@@ -52,14 +68,16 @@ class Checkout extends Component{
   render(){
     return(
       <div className={styles.Checkout}>
-        <CheckOutHeader process={this.state.process} history={this.props.history}/>
-        <CheckoutSection sync={this}/>
+        <CheckOutHeader process={this.state.process} test={this.state.details} history={this.props.history}/>
+        <CheckoutSection sync={this} authOpen={this.props.showAuth}/>
         {this.state.openAddress && <Address toogle={this.showAddress}/>}
       </div>
     )
   }
 }
 
+const mapStateToProps=(state)=>({
+  auth:state.auth
+})
 
-
-export default Checkout;
+export default connect(mapStateToProps,{showAuth})(Checkout);

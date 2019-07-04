@@ -2,14 +2,15 @@ import React,{Component} from 'react';
 import styles from './header.module.css';
 import Logo from './../../assets/logotext.PNG';
 import Small from './../../assets/small.PNG';
-import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {showCart,showAuth} from './../../action/flow.js';
 
 //import Components
 import Location from './../location/location.js';
 import SearchBar from './../searchbar/searchbar.js';
 import Avatar from './../avatar/avatar.js';
-import Cart from './../cart/cart.js';
 import Category from './../category/category.js';
+import CartIcon from './../../assets/icons/cart.svg';
 
 
 class Header extends Component{
@@ -17,6 +18,12 @@ class Header extends Component{
   state={
     smallIcon:false
   }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.listenScrollEvent)
+  }
+
+
 
   listenScrollEvent = e => {
     if (window.scrollY>35) {
@@ -30,8 +37,9 @@ class Header extends Component{
     }
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.listenScrollEvent)
+
+  redirectHome=()=>{
+    this.props.history.push('/')
   }
 
   render(){
@@ -44,7 +52,7 @@ class Header extends Component{
         <nav>
          <div className={styles.SmallLogo}>
           <span>
-            <img src={Small} onClick={()=>{this.props.history.push('/')}} className={styles.SmallImage} alt='company Logo'/>
+            <img src={Small} onClick={this.redirectHome} className={styles.SmallImage} alt='company Logo'/>
          </span>
             {this.state.smallIcon?
             <Category style={CategoryStyle}/>:
@@ -53,8 +61,11 @@ class Header extends Component{
          </div>
           <Location/>
           <SearchBar/>
-          <Avatar/>
-          <Cart/>
+          <Avatar click={this.props.showAuth}/>
+          <div className={styles.CartIcon} onClick={this.props.showCart}>
+            <img src={CartIcon} alt='cart'/>
+            <p>Cart</p>
+          </div>
         </nav>
       </div>
     );
@@ -63,4 +74,4 @@ class Header extends Component{
 
 
 
-export default Header;
+export default connect(null,{showCart,showAuth})(Header);

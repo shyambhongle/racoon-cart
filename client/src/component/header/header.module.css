@@ -47,3 +47,29 @@
   height: 70%;
   cursor: pointer;
 }
+
+.CartIcon{
+  height:60%;
+  width:70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.CartIcon img{
+  height: 40%;
+  width: 40%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.CartIcon p{
+  color: #333333;
+  font-size: 13px;
+  display: inline-block;
+  padding-top: 5px;
+  margin: 0px;
+  font-weight: bolder;
+}

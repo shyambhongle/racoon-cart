@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './checkoutsection.module.css';
-
+import Check from './../../../assets/icons/checked.svg';
 
 const CheckoutSection=(props)=>{
   return(
@@ -12,14 +12,15 @@ const CheckoutSection=(props)=>{
             <div className={styles.Header}>
               <span>1</span>
               <p>Account Verification</p>
+              <img src={Check} alt="checked"/>
             </div>
             {props.sync.state.process===1?<div className={styles.ActivePart}>
               <p>We need your email id so that we can update you about your order.</p>
               <span>
-                <button onClick={props.sync.loginProcess}>Login or Sign Up</button>
+                <button onClick={props.authOpen}>Login or Sign Up</button>
               </span>
             </div>:<div className={styles.DeactivePart}>
-              <p>shyambhongle@gmail.com</p>
+              <p>{props.sync.state.details.email}</p>
             </div>}
           </div>
         </div>

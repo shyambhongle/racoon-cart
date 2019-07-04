@@ -1,26 +1,36 @@
 {
   "name": "racoon-cart",
   "version": "1.0.0",
-  "description": "grocery store",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shyambhongle/racoon-cart.git"
   },
-  "keywords": [
-    "grocery",
-    "ecommerce",
-    "react",
-    "node",
-    "mongodb"
-  ],
-  "author": "shyam bhongle",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shyambhongle/racoon-cart/issues"
   },
-  "homepage": "https://github.com/shyambhongle/racoon-cart#readme"
+  "homepage": "https://github.com/shyambhongle/racoon-cart#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "path": "^0.12.7",
+    "validator": "^11.0.0"
+  }
 }

@@ -2,16 +2,16 @@ import React,{Component} from 'react';
 import styles from './avatar.module.css';
 import AvatarIcon from './../../assets/icons/avatar.svg';
 import CheckList from './../../assets/icons/list.svg';
+import Login from './../../assets/icons/login.svg';
 import Discount from './../../assets/icons/discount.svg';
-
-//Import components
-import Auth from './../auth/auth.js';
+import Logout from './../../assets/icons/logout.svg';
+import {connect} from 'react-redux'
+import {logoutUser} from './../../action/auth.js';
 
 class Avatar extends Component{
   state={
     isFocus:false,
     isAuth:false,
-    showAuth:false
   }
 
   onFocusHandler=()=>{
@@ -28,21 +28,19 @@ class Avatar extends Component{
 
   showAuth=()=>{
     this.setState({
-      showAuth:true,
       isFocus:false,
     })
+    this.props.click();
   }
 
-  closeAuth=()=>{
-    this.setState({
-      showAuth:false
-    })
+  logoutUser=()=>{
+    this.onBlurHandler()
+    this.props.logoutUser();
   }
 
   render(){
     return(
       <div className={styles.AvatarBox}>
-        {this.state.showAuth && <Auth clickHandler={this.closeAuth}/>}
       {this.state.isFocus && <div className={styles.BlurOverlay}
         onClick={this.onBlurHandler}></div>}
         <div className={styles.AvatarIcon} onClick={()=>{this.state.isFocus?this.onBlurHandler():this.onFocusHandler()}}>
@@ -52,23 +50,34 @@ class Avatar extends Component{
           { this.state.isFocus && <div className={styles.ProfileContainer}>
           <span className={styles.Locator}></span>
 
+          {this.props.auth.isAuthenticated===false?
           <div className={styles.AuthButton}>
           <button onClick={this.showAuth}>Login or Sign Up</button>
-          </div>
+          </div>:
+          <div className={styles.OtherButton}>
+            <img src={Login} alt="Login"/>
+            {this.props.auth.user.email}
+          </div>}
           <div className={styles.OtherButton}>
             <img src={CheckList} alt="Check list"/>
             Check list
           </div>
           <div className={styles.OtherButton}>
-          <img src={Discount} alt="Check list"/>
+          <img src={Discount} alt="Discount"/>
           Discount</div>
-          <div className={styles.OtherButton}>
-          <img src={CheckList} alt="Check list"/>
-          Check list</div>
+        {this.props.auth.isAuthenticated!==false && <div className={styles.OtherButton}
+        onClick={this.logoutUser}>
+        <img src={Logout} alt="Logout"/>
+        Logout
+       </div>}
         </div>}
       </div>
     )
   }
 }
 
-export default Avatar;
+const mapStateToProps=state=>({
+    auth:state.auth
+})
+
+export default connect(mapStateToProps,{logoutUser})(Avatar);
