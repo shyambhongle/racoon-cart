@@ -5,9 +5,20 @@ import CloseIcon from './../../assets/icons/cancel.svg';
 import ProductList from './../product_list/productlist.js';
 import {connect} from 'react-redux';
 import {closeFlow} from './../../action/flow.js';
+import {increment,decrement,removeitem} from './../../action/products.js';
+
 
 const Cart =(props)=>{
-
+  let products=props.products.cartItems.map(id=>{
+    return props.products.allProducts.map(item=>{
+      return item._id===id && <ProductList
+      key={item._id}
+      sync={item}
+      inc={()=>{props.increment(item)}}
+      dic={()=>{props.decrement(item)}}
+      remove={()=>{props.removeitem(item)}}/>
+    })
+  })
     return(
         <div className={styles.CartContainer} style={{visibility:props.control.showCart?"visible":"hidden"}}>
           <div className={styles.Overlay} onClick={props.closeFlow} style={{opacity:props.control.showCart?"0.5":"0"}}>></div>
@@ -17,10 +28,7 @@ const Cart =(props)=>{
               <img onClick={props.closeFlow} src={CloseIcon} alt="close" className={styles.Close}/>
             </div>
             <div className={styles.CartList}>
-              <ProductList/>
-              <ProductList/>
-              <ProductList/>
-              <ProductList/>
+              {products}
             </div>
             <div className={styles.CheckOut}>
               <button onClick={()=>{
@@ -34,8 +42,9 @@ const Cart =(props)=>{
 
 
 const mapStateToProps=(state)=>({
-  control:state.flow
+  control:state.flow,
+  products:state.products
 })
 
 
-export default connect(mapStateToProps,{closeFlow})(withRouter(Cart));
+export default connect(mapStateToProps,{closeFlow,increment,decrement,removeitem})(withRouter(Cart));

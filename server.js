@@ -31,6 +31,8 @@ require('./config/passport')(passport);
 
 //import routes
 const auth=require('./routes/auth');
+const addproduct=require('./routes/addproduct');
+const fetchproduct=require('./routes/fetchproduct');
 
 
 
@@ -40,6 +42,8 @@ const auth=require('./routes/auth');
 
 //route middleware
 app.use('/auth',auth);
+app.use('/addproduct',addproduct);
+app.use('/fetchproduct',fetchproduct);
 
 
 

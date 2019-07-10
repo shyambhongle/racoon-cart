@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './checkoutsection.module.css';
 import Check from './../../../assets/icons/checked.svg';
+import FinalCart from './../finalcart/finalcart.js';
 
 const CheckoutSection=(props)=>{
   return(
@@ -61,7 +62,7 @@ const CheckoutSection=(props)=>{
 
 
       </div>
-      <div className={styles.CheckoutList}></div>
+      <div className={styles.CheckoutList}><FinalCart/></div>
     </div>
   )
 }

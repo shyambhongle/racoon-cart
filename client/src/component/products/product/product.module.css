@@ -98,11 +98,21 @@
 
 .MainPart .AddButton{
   width: 50%;
-  background-color: yellow;
-  height: 70%;
+  background-color: #f57c00;
+  height: 40%;
   margin-left: 10%;
   border-radius: 16px;
-  display: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease-out;
+}
+
+.MainPart .AddButton:hover{
+  background-color: #ef6c00 ;
 }
 
 .MainPart .QtyButton{
@@ -119,6 +129,7 @@
   height: 25px;
   width:25px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .QtyButton img{

@@ -55,10 +55,12 @@
   width: 7%;
   height: 100%;
   position: absolute;
-  right: 3%;
+  right: 0px;
+  top: -1%;
   background: url('./../../assets/icons/error.svg');
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
   background-position: center;
 }
 
@@ -102,6 +104,7 @@
   height: 80%;
   width:10%;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .Amount .plus:first-of-type{

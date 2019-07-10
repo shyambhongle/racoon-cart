@@ -6,8 +6,12 @@ import Checkout from './../component/checkout/checkout.js';
 import Cart from './../component/cart/cart.js';
 import Auth from './../component/auth/auth.js';
 import {connect} from 'react-redux';
+import {fetchProduct} from './../action/fetchProduct';
 
 class Router extends Component{
+  componentDidMount(){
+    this.props.fetchProduct()
+  }
   render(){
     return(
       <Fragment>
@@ -32,4 +36,4 @@ const mapStateToProps=(state)=>({
 
 
 
-export default connect(mapStateToProps)(Router);
+export default connect(mapStateToProps,{fetchProduct})(Router);

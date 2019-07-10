@@ -11,6 +11,15 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  cart:{
+    type:Array
+  },
+  orders:{
+    type:Array
+  },
+  list:{
+    type:Array
+  },
   date: {
     type: Date,
     default: Date.now
