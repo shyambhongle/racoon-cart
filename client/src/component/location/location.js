@@ -4,7 +4,8 @@ import gpsIcon from './../../assets/icons/location.svg';
 import mumbai from './../../assets/icons/mumbai.svg';
 import pune from './../../assets/icons/pune.svg';
 import banglore from './../../assets/icons/banglore.svg';
-
+import {connect} from 'react-redux';
+import {citySelect} from './../../action/flow.js';
 
 
 class Location extends Component{
@@ -37,6 +38,7 @@ class Location extends Component{
 
 
   render(){
+    this.props.citySelect(this.state.citySelected)
     return(
       <div className={styles.LocationWrapper}>
         {this.state.isFocus && <div className={styles.BlurOverlay}
@@ -95,4 +97,4 @@ class Location extends Component{
 
 
 
-export default Location;
+export default connect(null,{citySelect})(Location);

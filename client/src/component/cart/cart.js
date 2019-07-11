@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import styles from './cart.module.css';
 import {withRouter} from 'react-router-dom';
 import CloseIcon from './../../assets/icons/cancel.svg';
@@ -6,7 +6,7 @@ import ProductList from './../product_list/productlist.js';
 import {connect} from 'react-redux';
 import {closeFlow} from './../../action/flow.js';
 import {increment,decrement,removeitem} from './../../action/products.js';
-
+import EmptyCart from './../../assets/media/emptycart.png';
 
 const Cart =(props)=>{
   let products=props.products.cartItems.map(id=>{
@@ -27,6 +27,13 @@ const Cart =(props)=>{
               <span className={styles.MycartTitle}>My Cart</span>
               <img onClick={props.closeFlow} src={CloseIcon} alt="close" className={styles.Close}/>
             </div>
+            {props.products.cartItems.length===0?
+            <div className={styles.EmptyCart}>
+              <img src={EmptyCart} alt="EmptyCart"/>
+              <span>Your Cart is Empty</span>
+              <button onClick={props.closeFlow}>Shop now</button>
+            </div>:
+            <Fragment>
             <div className={styles.CartList}>
               {products}
             </div>
@@ -35,6 +42,7 @@ const Cart =(props)=>{
                   props.closeFlow()
                   props.history.push('/checkout')}}>CheckOut</button>
             </div>
+            </Fragment>}
           </div>
         </div>
     )

@@ -3,7 +3,6 @@ import styles from './checkoutheader.module.css';
 import SmallLogo from './../../../assets/small.PNG';
 
 const CheckOutHeader =(props)=>{
-  console.log(props.test);
 
   const activeStyle={
     color:"#ff8f00 ",

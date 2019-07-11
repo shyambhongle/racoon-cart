@@ -20,25 +20,49 @@ class Checkout extends Component{
     isAuth:false,
   }
 
-  static getDerivedStateFromProps=(props,state)=>{
-    if (props.auth.isAuthenticated!==false){
-      return {
-        process:2,
-        details:{
-          email:props.auth.user.email,
-          address:state.details.address
-        }
-      }
-    }
-    return null;
+componentDidMount(){
+  if (this.props.products.cartItems.length===0) {
+    return this.props.history.push('/')
   }
-
-
-  loginProcess=()=>{
+  if (this.props.auth.isAuthenticated===true) {
     this.setState({
-      process:2
+      process:2,
+    details:{
+      email:this.props.auth.user.email,
+      address:""
+    }})
+  }
+}
+
+
+componentWillReceiveProps(props){
+  if (this.state.details.address!=="") {
+    return;
+  }
+  if (props.auth.isAuthenticated) {
+    return this.setState({
+      process:2,
+      details:{
+        email:props.auth.user.email,
+        address:""
+      }
     })
   }
+}
+
+
+
+  addressHandler=(adr)=>{
+    this.setState({
+      process:3,
+      details:{
+        ...this.state.details,
+        address:adr
+      }
+    })
+  }
+
+
 
   addressProcess=()=>{
     this.setState({
@@ -46,11 +70,7 @@ class Checkout extends Component{
     })
   }
 
-  paymentProcess=()=>{
-    this.setState({
-      process:0
-    })
-  }
+
 
   showAddress=()=>{
     if (this.state.openAddress) {
@@ -70,14 +90,16 @@ class Checkout extends Component{
       <div className={styles.Checkout}>
         <CheckOutHeader process={this.state.process} test={this.state.details} history={this.props.history}/>
         <CheckoutSection sync={this} authOpen={this.props.showAuth}/>
-        {this.state.openAddress && <Address toogle={this.showAddress}/>}
+        {this.state.openAddress && <Address add={this.addressHandler} city={this.props.control.city} toogle={this.showAddress}/>}
       </div>
     )
   }
 }
 
 const mapStateToProps=(state)=>({
-  auth:state.auth
+  auth:state.auth,
+  control:state.flow,
+  products:state.products
 })
 
 export default connect(mapStateToProps,{showAuth})(Checkout);

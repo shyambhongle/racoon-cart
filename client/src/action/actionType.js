@@ -10,3 +10,4 @@ export const ADD_TO_CART="ADD_TO_CART";
 export const INC_ITEM="INC_ITEM";
 export const DIC_ITEM="DIC_ITEM";
 export const REMOVE_ITEM="REMOVE_ITEM";
+export const CITY_SELECT="CITY_SELECT";

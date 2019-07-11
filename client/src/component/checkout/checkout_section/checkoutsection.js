@@ -4,6 +4,7 @@ import Check from './../../../assets/icons/checked.svg';
 import FinalCart from './../finalcart/finalcart.js';
 
 const CheckoutSection=(props)=>{
+  console.log(props.sync.state.process);
   return(
     <div className={styles.CheckoutSection}>
       <div className={styles.CheckoutMainPart}>
