@@ -33,6 +33,7 @@ require('./config/passport')(passport);
 const auth=require('./routes/auth');
 const addproduct=require('./routes/addproduct');
 const fetchproduct=require('./routes/fetchproduct');
+const placeorder=require('./routes/placeorder');
 
 
 
@@ -44,6 +45,7 @@ const fetchproduct=require('./routes/fetchproduct');
 app.use('/auth',auth);
 app.use('/addproduct',addproduct);
 app.use('/fetchproduct',fetchproduct);
+app.use('/placeorder',placeorder);
 
 
 

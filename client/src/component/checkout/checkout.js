@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import styles from './checkout.module.css';
 import {connect} from 'react-redux';
 import {showAuth} from './../../action/flow.js';
+import {placeOrder}  from './../../action/checkout.js';
 
 //import Components
 import CheckOutHeader from './checkout_header/checkoutheader.js';
@@ -28,8 +29,8 @@ componentDidMount(){
     this.setState({
       process:2,
     details:{
+      ...this.state.details,
       email:this.props.auth.user.email,
-      address:""
     }})
   }
 }
@@ -43,8 +44,8 @@ componentWillReceiveProps(props){
     return this.setState({
       process:2,
       details:{
+        ...this.state.details,
         email:props.auth.user.email,
-        address:""
       }
     })
   }
@@ -84,13 +85,30 @@ componentWillReceiveProps(props){
     }
   }
 
+  saveOrder=()=>{
+    let newCart=[];
+    this.props.products.cartItems.map(id=>{
+      return this.props.products.allProducts.map(item=>{
+        return item._id===id && newCart.push(item);
+    })})
+    let details={
+      cartItems:newCart,
+      totalItems:this.props.products.totalItems,
+      date:new Date(),
+      address:this.state.details.address
+    }
+    this.props.placeOrder(details,this.props.history)
+  }
+
+
+
 
   render(){
     return(
       <div className={styles.Checkout}>
         <CheckOutHeader process={this.state.process} test={this.state.details} history={this.props.history}/>
-        <CheckoutSection sync={this} authOpen={this.props.showAuth}/>
-        {this.state.openAddress && <Address add={this.addressHandler} city={this.props.control.city} toogle={this.showAddress}/>}
+        <CheckoutSection sync={this} authOpen={this.props.showAuth} place={this.saveOrder}/>
+        {this.state.openAddress && <Address add={this.addressHandler} city={this.props.control.city} toogle={this.showAddress} />}
       </div>
     )
   }
@@ -102,4 +120,4 @@ const mapStateToProps=(state)=>({
   products:state.products
 })
 
-export default connect(mapStateToProps,{showAuth})(Checkout);
+export default connect(mapStateToProps,{showAuth,placeOrder})(Checkout);

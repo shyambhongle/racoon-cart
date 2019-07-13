@@ -32,6 +32,11 @@ class SearchBar extends Component{
             <img src={SearchIcon} alt="search"/>
           </button>
         </div>
+        <div className={styles.SearchContainer}>
+          <div className={styles.SingleSearch}>
+            <span>Tea</span>
+          </div>
+        </div>
       </div>
     )
   }

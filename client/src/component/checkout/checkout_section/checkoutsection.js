@@ -4,7 +4,6 @@ import Check from './../../../assets/icons/checked.svg';
 import FinalCart from './../finalcart/finalcart.js';
 
 const CheckoutSection=(props)=>{
-  console.log(props.sync.state.process);
   return(
     <div className={styles.CheckoutSection}>
       <div className={styles.CheckoutMainPart}>
@@ -54,7 +53,7 @@ const CheckoutSection=(props)=>{
             {props.sync.state.process===3 && <div className={styles.ActivePart}>
               <p>Pay securely with our payment gateway.</p>
               <span>
-                <button className={styles.PaymentButton}>Payment</button>
+                <button className={styles.PaymentButton} onClick={props.place}>Payment</button>
               </span>
             </div>}
           </div>

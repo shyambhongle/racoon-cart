@@ -7,6 +7,7 @@ import Discount from './../../assets/icons/discount.svg';
 import Logout from './../../assets/icons/logout.svg';
 import {connect} from 'react-redux'
 import {logoutUser} from './../../action/auth.js';
+import {withRouter} from 'react-router-dom';
 
 class Avatar extends Component{
   state={
@@ -38,6 +39,14 @@ class Avatar extends Component{
     this.props.logoutUser();
   }
 
+  myaccount=()=>{
+    this.setState({
+      isFocus:false
+    })
+    this.props.history.push('/pastorders')
+  }
+
+
   render(){
     return(
       <div className={styles.AvatarBox}>
@@ -54,7 +63,7 @@ class Avatar extends Component{
           <div className={styles.AuthButton}>
           <button onClick={this.showAuth}>Login or Sign Up</button>
           </div>:
-          <div className={styles.OtherButton}>
+          <div className={styles.OtherButton} onClick={this.myaccount}>
             <img src={Login} alt="Login"/>
             {this.props.auth.user.email}
           </div>}
@@ -80,4 +89,4 @@ const mapStateToProps=state=>({
     auth:state.auth
 })
 
-export default connect(mapStateToProps,{logoutUser})(Avatar);
+export default connect(mapStateToProps,{logoutUser})(withRouter(Avatar));

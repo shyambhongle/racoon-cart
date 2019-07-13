@@ -130,8 +130,8 @@
 }
 .Amount .TotalPrice{
   position: absolute;
-  right: 10px;
+  right: 0.2%;
   color: #666666;
-  width: 10%;
-  font-size:1.2em;
+  width: 15%;
+  font-size:100%;
 }

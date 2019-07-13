@@ -1,6 +1,7 @@
 import React,{Component,Fragment} from 'react';
 import {Route,Switch} from 'react-router-dom';
 import Header from './../component/header/header.js';
+import PastOrder from './../component/past/past.js';
 import Section from './../component/section/section.js';
 import Checkout from './../component/checkout/checkout.js';
 import Cart from './../component/cart/cart.js';
@@ -12,6 +13,9 @@ class Router extends Component{
   componentDidMount(){
     this.props.fetchProduct()
   }
+  componentWillUnmount(){
+    console.log("unmounted");
+  }
   render(){
     return(
       <Fragment>
@@ -22,6 +26,7 @@ class Router extends Component{
           <Route path='/'  component={Header}/>
         </Switch>
         <Switch>
+          <Route path='/pastorders' exact component={PastOrder}/>
           <Route path='/' exact component={Section}/>
         </Switch>
       </Fragment>

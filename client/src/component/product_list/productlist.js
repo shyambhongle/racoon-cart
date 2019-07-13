@@ -34,7 +34,7 @@ const ProductList=(props)=>{
         <span className={styles.plus} style={{"display":props.visible && "none"}}
           onClick={props.inc}><img src={Plus} alt="plus"/></span>
         <span className={styles.Multiply}>x {props.sync.dprice}</span>
-        <span className={styles.TotalPrice}> &#8377;{props.sync.dprice * props.sync.qty}</span>
+        <span className={styles.TotalPrice}>&#8360; {props.sync.dprice * props.sync.qty}</span>
       </div>
     </div>
   )
