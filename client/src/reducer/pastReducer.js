@@ -12,7 +12,6 @@ const pastOrder=(state=initialState,action)=>{
         ...state,
         pastOrder:action.payload.orders
       }
-
     default:return state;
   }
 }

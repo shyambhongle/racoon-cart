@@ -1,0 +1,172 @@
+.AddProduct .AddForm{
+  width: 70%;
+  min-height: 78vh;
+  height: auto;
+  display:block;
+  margin:2% auto;
+  border: 1px solid rgba(0,0,0,0.07);
+  background-color: white;
+  padding-bottom: 3vh;
+}
+
+.FormTitle{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  border-bottom:1px solid rgba(0,0,0,0.07);
+  justify-content: center;
+}
+
+.FormTitle p{
+  color:#262626;
+  font-size: 140%;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.AddForm form{
+  width: 100%;
+  height: 100%;
+}
+
+.AddForm  form .FormInput{
+  width: 90%;
+  height: 7vh;
+  position: relative;
+  margin: 3% auto;
+}
+
+.AddForm  .FormInput input{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  font-size: 14px;
+  padding: .8em 0.8em;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  margin:0;
+  border-radius: 3px;
+}
+
+.FormInput label{
+  position: absolute;
+  background-color: white;
+  left: 5%;
+  top: -22%;
+  padding: 0.1% 2%;
+  font-size: 15px;
+  color: #999;
+  font-weight: 400;
+}
+
+
+.FormImage{
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+}
+
+.FormImage label{
+  width: 20%;
+  color: #777777;
+  font-size: 100%;
+  margin-left: 5%;
+}
+
+.FormImage input{
+  width: 60%;
+}
+
+.FormPrice{
+  width: 100%;
+  height:7vh;
+  display: flex;
+  align-items: center;
+}
+
+.FormPrice label{
+  width: 15%;
+  color: #777777;
+  font-size: 100%;
+  margin-left: 5%;
+  display: inline-block;
+}
+.FormPrice input{
+  width: 20%;
+  height: 50%;
+  margin-left: 0;
+  margin-right: 10%;
+}
+
+.FormSearch {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+}
+
+.FormSearch label{
+  width: 15%;
+  color: #777777;
+  font-size: 100%;
+  margin-left: 5%;
+  display: inline-block;
+}
+.FormSearch input{
+  width: 20%;
+  height: 50%;
+  margin-left: 0;
+  margin-right: 10%;
+}
+
+.FormSearch select{
+  width: 20%;
+  margin-right: 10%;
+  color: #777777;
+  font-size: 100%;
+}
+
+.AddForm form .Details{
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Details label{
+  color: #777777;
+  font-size: 100%;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.Details textarea{
+  width: 85%;
+  height: 80%;
+  margin-left: 5%;
+}
+
+.AddForm form button{
+  width: 70%;
+  margin-top:5%;
+  margin-left: 12%;
+  height: 7vh;
+  border: none;
+  color: white;
+  font-size: 100%;
+  font-weight: 500;
+  background-color: #689f38;
+  outline: none;
+  cursor: pointer;
+  transition: background 1s;
+}
+
+.AddForm form button:hover{
+  background-color: #558b2f ;
+}

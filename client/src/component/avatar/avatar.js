@@ -36,7 +36,7 @@ class Avatar extends Component{
 
   logoutUser=()=>{
     this.onBlurHandler()
-    this.props.logoutUser();
+    this.props.logoutUser(this.props.history);
   }
 
   myaccount=()=>{

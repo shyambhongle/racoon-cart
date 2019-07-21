@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './checkoutsection.module.css';
 import Check from './../../../assets/icons/checked.svg';
 import FinalCart from './../finalcart/finalcart.js';
+import StripeBtn from './../payment/payment.js';
 
 const CheckoutSection=(props)=>{
   return(
@@ -52,8 +53,8 @@ const CheckoutSection=(props)=>{
             </div>
             {props.sync.state.process===3 && <div className={styles.ActivePart}>
               <p>Pay securely with our payment gateway.</p>
-              <span>
-                <button className={styles.PaymentButton} onClick={props.place}>Payment</button>
+              <span style={{transform:"translateX(-7%)"}}>
+                <StripeBtn address={props.sync.state.details.address}/>
               </span>
             </div>}
           </div>

@@ -20,6 +20,9 @@ const UserSchema = new Schema({
   list:{
     type:Array
   },
+  admin:{
+    type:String
+  },
   date: {
     type: Date,
     default: Date.now

@@ -1,8 +1,9 @@
-import {ADD_TO_CART,INC_ITEM,DIC_ITEM,REMOVE_ITEM} from './actionType';
+import {ADD_TO_CART,INC_ITEM,DIC_ITEM,REMOVE_ITEM,ALERT} from './actionType';
 
 export const addtocart=(item)=>{
   return dispatch=>{
-    dispatch({type:ADD_TO_CART,payload:item})
+    dispatch({type:ALERT,payload:'added to cart'})
+    dispatch({type:ADD_TO_CART,payload:item});
   }
 }
 
@@ -21,6 +22,7 @@ export const decrement=(item)=>{
 
 export const removeitem=(item)=>{
   return dispatch=>{
-    dispatch({type:REMOVE_ITEM,payload:item})
+    dispatch({type:REMOVE_ITEM,payload:item});
+    dispatch({type:ALERT,payload:`Removed from cart`})
   }
 }

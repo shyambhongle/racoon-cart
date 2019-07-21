@@ -137,7 +137,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
+
+.CheckOut .TotalPrice{
+  width: 22%;
+  height: 45%;
+  background-color: #558b2f;
+  position: absolute;
+  right: 12%;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 95%;
+  border-radius: 5px;
+  justify-content: center;
+  word-spacing: 3px;
+}
+
+
+
 
 .CheckOut button{
   width: 80%;

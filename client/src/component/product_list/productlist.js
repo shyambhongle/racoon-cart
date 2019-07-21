@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './productlist.module.css';
 
-import Test from './../../assets/media/Capture.PNG';
 import Minus from './../../assets/icons/minus.svg';
 import Plus from './../../assets/icons/plus.svg';
 
@@ -14,7 +13,7 @@ const ProductList=(props)=>{
     <div className={styles.ListContainer}>
       <div className={styles.InfoContainer}>
         <div className={styles.Image}>
-          <img src={Test} alt="list profuct"/>
+          <img src={props.sync.image} alt="list profuct"/>
         </div>
         <div className={styles.Details}>
           <div className={styles.Discount}>

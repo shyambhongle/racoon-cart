@@ -1,9 +1,12 @@
 import isEmpty from './../validation/is-empty';
-import { LOGIN } from './../action/actionType.js';
+import { LOGIN,ADMIN} from './../action/actionType.js';
 
 const initialState = {
   isAuthenticated: false,
-  user: {}
+  user: {},
+  orders:[],
+  cart:[],
+  pass:null
 };
 
 const auth=(state = initialState, action)=>{
@@ -12,8 +15,15 @@ const auth=(state = initialState, action)=>{
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
-        user: action.payload
+        user: action.payload,
+        orders:action.details.order,
+        cart:action.details.cart
       };
+    case ADMIN:
+    return {
+      ...state,
+      pass:true
+    }
     default:
       return state;
   }

@@ -4,6 +4,7 @@ import Logo from './../../assets/logotext.PNG';
 import Small from './../../assets/small.PNG';
 import {connect} from 'react-redux';
 import {showCart,showAuth} from './../../action/flow.js';
+import AdminPannel from './../adminpanel/adminpanel.js';
 
 //import Components
 import Location from './../location/location.js';
@@ -16,7 +17,8 @@ import CartIcon from './../../assets/icons/cart.svg';
 class Header extends Component{
 
   state={
-    smallIcon:false
+    smallIcon:false,
+    count:0
   }
 
   componentDidMount() {
@@ -66,15 +68,23 @@ class Header extends Component{
           <SearchBar/>
           <Avatar click={this.props.showAuth}/>
           <div className={styles.CartIcon} onClick={this.props.showCart}>
+            {this.props.count!==0 &&   <div className={styles.CartCount}>
+                {this.props.count!==0 &&this.props.count}
+              </div>}
             <img src={CartIcon} alt='cart'/>
             <p>Cart</p>
           </div>
+          {this.props.auth.pass!==null && <AdminPannel history={this.props.history}/>}
         </nav>
       </div>
     );
   }
 }
 
+const mapStateToprops=state=>({
+  count:state.products.totalItems,
+  auth:state.auth
+})
 
 
-export default connect(null,{showCart,showAuth})(Header);
+export default connect(mapStateToprops,{showCart,showAuth})(Header);

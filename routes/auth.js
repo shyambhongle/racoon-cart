@@ -39,17 +39,21 @@ router.post('/register', (req, res) => {
         newUser.save()
         .then(user => {
           const payload = {
-            id: user.id,
-            email:user.email}; // Create JWT payload
+             id: user.id,
+             email:user.email}; // Create JWT payload
             // Sign Token
             jwt.sign(
               payload,
               keys.secretOrKey,
               { expiresIn: 3600 },
               (err, token) => {
+                console.log(user);
                 res.json({
                   success: true,
-                  token: 'Bearer ' + token
+                  token: 'Bearer ' + token,
+                  order:user.orders,
+                  cart:user.cart,
+                  pass:user._id=="5d3353168efff81ad8102d4c"?false:true
                 });
               }
             );
@@ -100,9 +104,14 @@ router.post('/login', (req, res) => {
           keys.secretOrKey,
           { expiresIn: 3600 },
           (err, token) => {
+            console.log(user);
+
             res.json({
               success: true,
-              token: 'Bearer ' + token
+              token: 'Bearer ' + token,
+              order:user.orders,
+              cart:user.cart,
+              pass:user._id=="5d3353168efff81ad8102d4c"?false:true
             });
           }
         );

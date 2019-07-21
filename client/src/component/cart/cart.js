@@ -9,9 +9,9 @@ import {increment,decrement,removeitem} from './../../action/products.js';
 import EmptyCart from './../../assets/media/emptycart.png';
 
 const Cart =(props)=>{
-  let products=props.products.cartItems.map(id=>{
-    return props.products.allProducts.map(item=>{
-      return item._id===id && <ProductList
+    let products=props.products.cartItems.map(id=>{
+      return props.products.allProducts.map(item=>{
+      return item._id===id._id && <ProductList
       key={item._id}
       sync={item}
       inc={()=>{props.increment(item)}}
@@ -25,6 +25,8 @@ const Cart =(props)=>{
           <div className={styles.CartContent} style={{transform:props.control.showCart?"translateX(0vw)":"translateX(37vw)"}}>
             <div className={styles.Header}>
               <span className={styles.MycartTitle}>My Cart</span>
+              <span className={styles.MycartTitle} style={{marginLeft:"22%"}}>
+                Total Items: {props.products.totalItems} </span>
               <img onClick={props.closeFlow} src={CloseIcon} alt="close" className={styles.Close}/>
             </div>
             {props.products.cartItems.length===0?
@@ -38,6 +40,7 @@ const Cart =(props)=>{
               {products}
             </div>
             <div className={styles.CheckOut}>
+              <span className={styles.TotalPrice}>Total: &#8360;.{props.products.totalPrice}</span>
               <button onClick={()=>{
                   props.closeFlow()
                   props.history.push('/checkout')}}>CheckOut</button>

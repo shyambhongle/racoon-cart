@@ -141,6 +141,7 @@
   display: flex;
   align-items: center;
   margin-left: 10%;
+  width: auto;
 }
 
 .Active .ActivePart  button{
@@ -160,12 +161,4 @@
 
 .Active .ActivePart  button:hover{
   background-color: #ef6c00 ;
-}
-
-.Active .ActivePart  .PaymentButton{
-  background-color: #689f38 ;
-}
-
-.Active .ActivePart .PaymentButton:hover{
-  background-color: #558b2f  ;
 }

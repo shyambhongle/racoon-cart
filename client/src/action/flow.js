@@ -1,4 +1,4 @@
-import {SHOW_CART,SHOW_AUTH,CLOSE_FLOW,CLEAR_ERRORS,CITY_SELECT} from './actionType.js';
+import {SHOW_CART,SHOW_AUTH,CLOSE_FLOW,CLEAR_ERRORS,CITY_SELECT,ALERT} from './actionType.js';
 
 
 
@@ -29,5 +29,12 @@ export const closeFlow=()=>{
 export const citySelect=(city)=>{
   return dispatch=>{
     dispatch({type:CITY_SELECT,payload:city})
+  }
+}
+
+
+export const clearAlert=()=>{
+  return dispatch=>{
+    dispatch({type:ALERT,payload:""})
   }
 }

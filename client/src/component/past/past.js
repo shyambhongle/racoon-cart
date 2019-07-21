@@ -5,11 +5,10 @@ import ProductList from './../product_list/productlist.js';
 import Empty from './../../assets/media/emptycart.gif';
 
 const PastOrder =(props)=>{
-  console.log(props.past);
   let orders;
   if (props.past.pastOrder.length!==0) {
 
-    orders=props.past.pastOrder.map(item=>{
+    orders=props.past.pastOrder.map((item,i)=>{
       let sproduct=item.cartItems.map(s=>{
          return (<ProductList
           key={s._id}
@@ -19,7 +18,7 @@ const PastOrder =(props)=>{
           remove={()=>{}}
           visible={"hidden"}/>)
       })
-      return (<div className={styles.SingleOrder}>
+      return (<div className={styles.SingleOrder} key={i}>
                 <div className={styles.SingleOrderHeader}>
                   <span>Order no:452576874</span>
                   <p>{item.date}</p>

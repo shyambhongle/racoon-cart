@@ -34,6 +34,9 @@ const ProductSchema = new Schema({
   search:{
     type:String
   },
+  imageId:{
+    type:String
+  },
   date: {
     type: Date,
     default: Date.now

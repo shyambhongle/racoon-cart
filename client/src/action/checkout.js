@@ -1,13 +1,21 @@
-import {PLACE_ORDER} from './actionType';
+import {PLACE_ORDER,CLEAR_CART,ALERT} from './actionType';
 import axios from 'axios';
 
 
-export const placeOrder=(details,history)=>{
+export const placeOrder=(body,history)=>{
   return dispatch=>{
-    axios.post('/placeorder',{details})
-    .then((res)=>{
-      dispatch({type:PLACE_ORDER,payload:res.data})
-      history.push('/pastorders')
-    })
+
+    axios
+        .post("/payment", body)
+        .then(response => {
+          dispatch({type:PLACE_ORDER,payload:response.data.update});
+          dispatch({type:CLEAR_CART})
+          dispatch({type:ALERT,payload:`Payment successful`})
+          history.push('/pastorders')
+        })
+        .catch(error => {
+          console.log("Payment Error: ", error);
+          alert("Payment Error");
+        });
   }
 }

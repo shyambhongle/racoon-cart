@@ -9,6 +9,7 @@ const app = express();
 
 
 // Connect to MongoDB
+//'mongodb://localhost/raccon'
 mongoose
   .connect(db)
   .then(() => console.log('MongoDB Connected'))
@@ -31,9 +32,10 @@ require('./config/passport')(passport);
 
 //import routes
 const auth=require('./routes/auth');
-const addproduct=require('./routes/addproduct');
+const admin=require('./routes/admin');
 const fetchproduct=require('./routes/fetchproduct');
 const placeorder=require('./routes/placeorder');
+const inputSearch=require('./routes/search');
 
 
 
@@ -43,9 +45,10 @@ const placeorder=require('./routes/placeorder');
 
 //route middleware
 app.use('/auth',auth);
-app.use('/addproduct',addproduct);
+app.use('/admin',admin);
 app.use('/fetchproduct',fetchproduct);
-app.use('/placeorder',placeorder);
+app.use('/payment',placeorder);
+app.use('/inputsearch',inputSearch);
 
 
 

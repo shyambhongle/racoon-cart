@@ -1,11 +1,12 @@
-import {SHOW_CART,SHOW_AUTH,CLOSE_FLOW,CITY_SELECT} from './../action/actionType.js';
+import {SHOW_CART,SHOW_AUTH,CLOSE_FLOW,CITY_SELECT,ALERT} from './../action/actionType.js';
 
 
 
 const initialState={
     showCart:false,
     showAuth:false,
-    city:"Mumbai"
+    city:"Mumbai",
+    alertContent:""
 }
 
 const flow=(state=initialState,action)=>{
@@ -21,6 +22,11 @@ const flow=(state=initialState,action)=>{
       ...state,
       showCart:true,
       showAuth:false
+    }
+    case ALERT:
+    return{
+      ...state,
+    alertContent:action.payload
     }
     case SHOW_AUTH:
       return{

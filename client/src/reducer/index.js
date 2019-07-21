@@ -4,6 +4,8 @@ import authreducer from './authReducer.js';
 import errorReducer from './errorReducer.js';
 import productReducer from './productReducer.js';
 import pastOrder from './pastReducer.js';
+import inputSearch from './searchReducer.js';
+import editProduct from './adminReducer.js';
 
 
 
@@ -12,5 +14,7 @@ export default  combineReducers({
   auth:authreducer,
   error:errorReducer,
   products:productReducer,
-  past:pastOrder
+  past:pastOrder,
+  search:inputSearch,
+  admin:editProduct,
 });

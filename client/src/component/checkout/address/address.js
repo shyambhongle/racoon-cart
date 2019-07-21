@@ -32,12 +32,12 @@ class Address extends Component{
             <div className={styles.FormInput}>
               <label htmlFor="address" className="floatLabel">Address</label>
               <input id="address" name="address" type="text"
-                onChange={this.changeHandler} value={this.state.address}/>
+                onChange={this.changeHandler} value={this.state.address} required/>
             </div>
             <div className={styles.FormInput}>
               <label htmlFor="pincode" className="floatLabel">Pincode</label>
               <input id="pincode" name="pincode" value={this.state.pincode}
-                onChange={this.changeHandler} type="text"/>
+                onChange={this.changeHandler} type="text" required/>
             </div>
             <div className={styles.FormInput}>
               <label htmlFor="city" className="floatLabel">City</label>

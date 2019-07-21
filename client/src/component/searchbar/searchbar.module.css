@@ -6,12 +6,25 @@ align-items: center;
 margin: 0px;
 padding: 0px;
 position:relative;
+z-index: 10;
 }
+
+
+.BlurOverlay{
+  width: 120vw;
+  height: 100vh;
+  position: fixed;
+  z-index:-1;
+  left: 0;
+  top: 0;
+}
+
 
 .search {
   text-align: center;
   width: 100%;
   position: relative;
+  z-index: 10;
 }
 
 
@@ -65,8 +78,6 @@ position:relative;
   top: 70%;
   border: 1px solid rgba(0,0,0,0.1);
   border-top: none;
-  display: flex;
-  flex-direction: column;
 }
 .SingleSearch{
   width: 100%;
@@ -78,7 +89,8 @@ position:relative;
 .SingleSearch span{
   color:#262626;
   font-size: 90%;
-  margin-left: 6%
+  margin-left: 6%;
+  text-transform: capitalize;
 }
 .SingleSearch:hover{
   background-color: rgba(0,0,0,0.05);
