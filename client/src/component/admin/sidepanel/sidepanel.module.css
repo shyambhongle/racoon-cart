@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   border-right: 1px solid rgba(102, 97, 91, 0.3);
+  position: fixed;
 }
 
 
@@ -21,12 +22,12 @@
 .SidePanel .Email{
   font-size: 130%;
   color: #66615B;
-  margin-bottom: 5%;
+  margin-bottom: 8%;
 }
 
 .SidePanel .Buttons{
   width: 100%;
-  height: 11%;
+  height: 11.5%;
   border-bottom: 1px solid rgba(102, 97, 91, 0.3);
   display: flex;
   justify-content: center;

@@ -6,7 +6,7 @@ const initialState = {
   user: {},
   orders:[],
   cart:[],
-  pass:null
+  pass:true
 };
 
 const auth=(state = initialState, action)=>{

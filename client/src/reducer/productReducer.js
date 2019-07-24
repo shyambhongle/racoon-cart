@@ -1,5 +1,5 @@
-import {FETCH_PRODUCT,ADD_TO_CART,INC_ITEM,DIC_ITEM,REMOVE_ITEM,INPUT_CLICK,CLEAR_CART,CLEAR_SEARCH} from './../action/actionType';
-
+import {FETCH_PRODUCT,ADD_TO_CART,INC_ITEM,DIC_ITEM,REMOVE_ITEM,INPUT_CLICK,CLEAR_CART,CLEAR_SEARCH,LOGIN_CART} from './../action/actionType';
+import axios from 'axios';
 
 const initialState={
   allProducts:[],
@@ -16,17 +16,17 @@ const productReducer=(state=initialState,action)=>{
         ...state,
         allProducts:[...action.payload]
       }
-    case INPUT_CLICK:
-      let searchedProducts=[];
-      action.payload.map(items=>{
-        return state.allProducts.map(i=>{
-          return i._id===items._id && searchedProducts.push(i);;
-        })
-      })
-      return {
-        ...state,
-        inputSearch:searchedProducts
-      };
+      case INPUT_CLICK:
+         let searchedProducts=[];
+         action.payload.map(items=>{
+           return state.allProducts.map(i=>{
+             return i._id===items._id && searchedProducts.push(i);;
+           })
+         })
+         return {
+           ...state,
+           inputSearch:searchedProducts
+         };
       case CLEAR_SEARCH:
       let deleteProduct=state.inputSearch.filter(item=>{
         return item._id!==action.payload;
@@ -35,7 +35,7 @@ const productReducer=(state=initialState,action)=>{
         ...state,
         inputSearch:deleteProduct
       }
-    case ADD_TO_CART:
+      case ADD_TO_CART:
       let newCart=[...state.cartItems];
       let addTest=state.cartItems.findIndex(item=>{
         return item._id===action.payload._id;
@@ -47,6 +47,14 @@ const productReducer=(state=initialState,action)=>{
       syncAdd.map(item=>{
         return item._id===action.payload._id?item.qty+=1:null;
       })
+        if (localStorage.jwtToken){
+          let sendCart={
+            cartItems:newCart,
+            totalItems:newCart.length,
+            totalPrice:state.totalPrice+=action.payload.dprice
+          }
+          axios.post('/profile/addcart',{cart:sendCart})
+        }
       return{
         ...state,
         allProducts:syncAdd,
@@ -87,6 +95,13 @@ const productReducer=(state=initialState,action)=>{
         }
         return item._id===action.payload._id?item.qty=0:null;
       })
+      if (localStorage.jwtToken){
+        let sendCart={
+          cartItems:removedCart,
+          totalItems:removedCart.length,
+          totalPrice:state.totalPrice-=removePrice }
+       axios.post('/profile/addcart',{cart:sendCart})
+      }
       return {
         ...state,
         cartItems:removedCart,
@@ -95,12 +110,28 @@ const productReducer=(state=initialState,action)=>{
         totalPrice:state.totalPrice-=removePrice
       }
       case CLEAR_CART:
+        let logOutCart=state.allProducts.map(item=>{
+          item.qty=0
+          return item;
+        })
         return {
         ...state,
+        allProducts:logOutCart,
         cartItems:[],
         totalItems:0,
         inputSearch:[],
         totalPrice:0
+      }
+      case LOGIN_CART:
+      if (state.cartItems.length!==0) {
+        return {...state}
+      }else {
+        return {
+          ...state,
+          cartItems:action.payload[0].cartItems,
+          totalItems:action.payload[0].totalItems,
+          totalPrice:action.payload[0].totalPrice
+        };
       }
       default:
       return state;

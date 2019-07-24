@@ -4,9 +4,11 @@ import HomePanel from './homepanel/homepanel';
 import AddProduct from './addproduct/addproduct';
 import EditProduct from './editproduct/editproduct';
 import DeleteProduct from './deleteproduct/deleteproduct';
+import Dashboard from './dashboard/dashboard';
 import {Switch,Route} from 'react-router-dom';
 
 const Main=(props)=>{
+
   return (
     <div className={styles.Main}>
       <div className={styles.Header}><p>{props.title}</p></div>
@@ -15,7 +17,8 @@ const Main=(props)=>{
           <Route path='/admin/homepanel' exact component={HomePanel}/>
           <Route path='/admin/addproduct' exact component={AddProduct}/>
           <Route path='/admin/editproduct' exact component={EditProduct}/>
-            <Route path='/admin/deleteproduct' exact component={DeleteProduct}/>
+          <Route path='/admin/deleteproduct' exact component={DeleteProduct}/>
+          <Route path='/admin/dashboard' exact component={Dashboard}/>
         </Switch>
       </div>
     </div>

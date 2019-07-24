@@ -1,4 +1,4 @@
-import { GET_ERRORS,LOGIN,CLOSE_FLOW,CLEAR_ERRORS,ALERT,PLACE_ORDER,ADMIN} from './actionType';
+import { GET_ERRORS,LOGIN,CLOSE_FLOW,CLEAR_ERRORS,ALERT,PLACE_ORDER,ADMIN,LOGIN_CART,CLEAR_CART} from './actionType';
 import axios from 'axios';
 import setAuthToken from './../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
@@ -18,6 +18,7 @@ export const registerUser = (userData) => dispatch => {
         order:res.data.order,
         cart:res.data.cart
       }
+      dispatch({type:LOGIN_CART,payload:res.data.cart})
       dispatch(setCurrentUser(decoded,details));
       dispatch({type:PLACE_ORDER,payload:{orders:res.data.order}});
       dispatch({type:ALERT,payload:`Loged in as ${decoded.email}`})
@@ -47,10 +48,10 @@ export const loginUser = userData => dispatch => {
         order:res.data.order,
         cart:res.data.cart
       }
+      dispatch({type:LOGIN_CART,payload:res.data.cart})
       dispatch(setCurrentUser(decoded,details));
       dispatch({type:PLACE_ORDER,payload:{orders:res.data.order}});
       dispatch({type:ALERT,payload:`Loged in as ${decoded.email}`})
-      console.log(res.data);
       if (res.data.pass===false) {
         dispatch({type:ADMIN})
       }
@@ -83,6 +84,7 @@ export const logoutUser = (history) => dispatch => {
   setAuthToken(false);
   // Set current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+  dispatch({type:CLEAR_CART});
   dispatch({type:ALERT,payload:`Succefully Loged out`})
   history.push('/')
 };

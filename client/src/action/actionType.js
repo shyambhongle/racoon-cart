@@ -21,3 +21,4 @@ export const CLEAR_ITEM="CLEAR_ITEM";
 export const CLEAR_SEARCH="CLEAR_SEARCH";
 export const ADMIN_LOADING="ADMIN_LOADING";
 export const ADMIN="ADMIN";
+export const LOGIN_CART="LOGIN_CART";

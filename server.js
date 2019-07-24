@@ -36,6 +36,7 @@ const admin=require('./routes/admin');
 const fetchproduct=require('./routes/fetchproduct');
 const placeorder=require('./routes/placeorder');
 const inputSearch=require('./routes/search');
+const profile=require('./routes/profile');
 
 
 
@@ -49,6 +50,7 @@ app.use('/admin',admin);
 app.use('/fetchproduct',fetchproduct);
 app.use('/payment',placeorder);
 app.use('/inputsearch',inputSearch);
+app.use('/profile',profile);
 
 
 
