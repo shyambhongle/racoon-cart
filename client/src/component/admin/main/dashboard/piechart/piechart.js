@@ -7,13 +7,24 @@ import * as d3 from 'd3';
 class PieChart extends Component {
   state={
     width:window.innerWidth,
-    height:window.innerHeight
+    height:window.innerHeight,
+    data:this.props.data
   }
 
     componentDidMount() {
       this.drawChart()
       window.addEventListener("resize", this.updateDimensions);
     }
+
+    componentWillReceiveProps(props){
+      this.setState({
+        data:props.data
+      },()=>{
+        this.drawChart()
+      })
+    }
+
+
     componentWillUnmount(){
         window.removeEventListener("resize", this.updateDimensions);
     }
@@ -57,11 +68,10 @@ var svg2 = d3.select("#piechart").append("svg")
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
 const data=[
-  {fruit:"Mumbai",count:"10"},
-  {fruit:"Pune",count:"20"},
-  {fruit:"Banglore",count:"15"}]
+  {fruit:"Mumbai",count:this.state.data.Mumbai},
+  {fruit:"Pune",count:this.state.data.Pune},
+  {fruit:"Banglore",count:this.state.data.Banglore}]
 
 
     // parse data
@@ -103,6 +113,7 @@ function tweenDonut(b) {
   return function(t) { return arc2(i(t)); };
 }
   }
+
     render() {
       return  (
         <div id="piechart">

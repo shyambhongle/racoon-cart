@@ -3,6 +3,9 @@ import styles from './products.module.css';
 import Product from './product/product.js';
 import {connect} from 'react-redux';
 import {addtocart,increment,decrement,removeitem} from './../../action/products.js';
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Products =(props)=>{
   let product;
@@ -17,14 +20,21 @@ const Products =(props)=>{
         remove={()=>{props.removeitem(item)}}/>
     })
   }
+  const settings = {
+     dots: false,
+     infinite: true,
+     speed: 500,
+     slidesToShow: 4,
+     slidesToScroll: 4,
+   };
   return(
     <div className={styles.Products}>
       <div className={styles.Label}>
-        <p>{props.title}</p>
+        <span></span><p>{props.title}</p><span></span>
       </div>
-      <div className={styles.LabelProducts}>
+      <Slider {...settings} >
         {product}
-      </div>
+      </Slider>
     </div>
   );
 }

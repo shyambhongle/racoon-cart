@@ -22,3 +22,4 @@ export const CLEAR_SEARCH="CLEAR_SEARCH";
 export const ADMIN_LOADING="ADMIN_LOADING";
 export const ADMIN="ADMIN";
 export const LOGIN_CART="LOGIN_CART";
+export const GET_ADMIN="GET_ADMIN";

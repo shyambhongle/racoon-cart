@@ -51,7 +51,7 @@ router.post('/register', (req, res) => {
                 res.json({
                   success: true,
                   token: 'Bearer ' + token,
-                  order:user.orders,
+                  orders:user.orders,
                   cart:user.cart,
                   pass:user._id=="5d3353168efff81ad8102d4c"?false:true
                 });
@@ -109,7 +109,7 @@ router.post('/login', (req, res) => {
             res.json({
               success: true,
               token: 'Bearer ' + token,
-              order:user.orders,
+              orders:user.orders,
               cart:user.cart,
               pass:user._id=="5d3353168efff81ad8102d4c"?false:true
             });

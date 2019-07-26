@@ -2,9 +2,10 @@ const express=require('express');
 const router=express.Router();
 const mongoose=require('mongoose');
 const Product =require('./../models/product.js');
-
+const passport=require('passport');
 const multer = require("multer");
 const cloudinary = require("cloudinary");
+const Admin =require('./../models/admin.js');
 
 cloudinary.config({
 cloud_name: 'shyambhongle',
@@ -29,12 +30,11 @@ router.post('/addproduct',upload.single('img'),(req,res)=>{
   cloudinary.v2.uploader.upload(req.file.path,{folder:"products"},
   (error, result)=>
   {
-    console.log(req.body);
     const newProduct = new Product({
       title: req.body.title,
       dprice:req.body.dprice,
       price:req.body.price,
-      discount:(req.body.dprice/req.body.price)*100,
+      discount:((req.body.price-req.body.dprice)/req.body.price)*100,
       weight:req.body.weight,
       category:req.body.category,
       search:req.body.search,
@@ -56,7 +56,7 @@ router.post('/editproduct',upload.single('img'),(req,res)=>{
         "title": req.body.title,
         "dprice":req.body.dprice,
         "price":req.body.price,
-        "discount":(req.body.dprice/req.body.price)*100,
+        "discount":((req.body.price-req.body.dprice)/req.body.price)*100,
         "weight":req.body.weight,
         "category":req.body.category,
         "search":req.body.search,
@@ -77,7 +77,7 @@ router.post('/editproducts',upload.single('img'),(req,res)=>{
         "title": req.body.title,
         "dprice":req.body.dprice,
         "price":req.body.price,
-        "discount":(req.body.dprice/req.body.price)*100,
+        "discount":((req.body.price-req.body.dprice)/req.body.price)*100,
         "weight":req.body.weight,
         "category":req.body.category,
         "search":req.body.search,
@@ -93,7 +93,13 @@ router.post('/deleteproduct',(req,res)=>{
   Product.deleteOne({ "_id": req.body._id }).then(re=>{res.json({"message":"successful"})})
 })
 
-
+router.get('/getadmin',(req,res)=>{
+  console.log("reached");
+  Admin.findOne({"_id":"5d3955940201c73f5c5e65a3"})
+        .then(admin=>{
+          res.json(admin)
+        })
+})
 
 
 module.exports=router;

@@ -95,7 +95,8 @@ componentWillReceiveProps(props){
       cartItems:newCart,
       totalItems:this.props.products.totalItems,
       date:new Date(),
-      address:this.state.details.address
+      address:this.state.details.address+this.props.control.city,
+      city:this.props.control.city
     }
     this.props.placeOrder(details,this.props.history)
   }

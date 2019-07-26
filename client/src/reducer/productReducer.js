@@ -125,7 +125,8 @@ const productReducer=(state=initialState,action)=>{
       case LOGIN_CART:
       if (state.cartItems.length!==0) {
         return {...state}
-      }else {
+      }
+      if (action.payload.length!==0) {
         return {
           ...state,
           cartItems:action.payload[0].cartItems,
@@ -133,6 +134,7 @@ const productReducer=(state=initialState,action)=>{
           totalPrice:action.payload[0].totalPrice
         };
       }
+      return state;
       default:
       return state;
   }

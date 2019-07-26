@@ -1,5 +1,12 @@
 import React from 'react';
 import styles from './banner.module.css';
+import Slider from "react-slick";
+import Banner1 from './../../assets/media/banner/banner1.jpg';
+import Banner2 from './../../assets/media/banner/banner2.png';
+import Banner3 from './../../assets/media/banner/banner3.png';
+import Banner4 from './../../assets/media/banner/banner4.jpg';
+import Banner5 from './../../assets/media/banner/banner6.png';
+
 
 //import components
 import Category from './../category/category.js';
@@ -10,6 +17,17 @@ const Banner=()=>{
     width:"18%",
     height:"100%",
   }
+  const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows:true,
+      autoplay:true,
+      autoplaySpeed:3000,
+      lazyLoad:"progressive"
+    };
   return(
     <div className={styles.BannerWrapper}>
       <div className={styles.NavigationPannel}>
@@ -20,8 +38,14 @@ const Banner=()=>{
         <div className={styles.NavHeader}>BLOG</div>
         <div className={styles.NavHeader}>OFFERS</div>
       </div>
-      <div className={styles.BannerImage}></div>
-    </div>
+      <Slider {...settings}>
+        <img src={Banner1} alt="" className={styles.BannerImage}/>
+        <img src={Banner2} alt="" className={styles.BannerImage}/>
+        <img src={Banner3} alt="" className={styles.BannerImage}/>
+        <img src={Banner4} alt="" className={styles.BannerImage}/>
+        <img src={Banner5} alt="" className={styles.BannerImage}/>
+      </Slider>
+  </div>
   )
 }
 

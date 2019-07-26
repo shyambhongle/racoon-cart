@@ -3,7 +3,7 @@ import styles from './admin.module.css';
 import Main from './main/main.js';
 import SidePanel from './sidepanel/sidepanel.js';
 import {connect} from 'react-redux';
-
+import {getAdmin} from './../../action/admin.js';
 
 
 class Admin extends Component{
@@ -14,10 +14,12 @@ class Admin extends Component{
   componentDidMount(){
     if (this.props.auth.pass===null) {
       this.props.history.push('/')
+      return;
     }
     if (this.state.opened==="Dashboard" && this.props.auth.pass!==null ) {
       this.props.history.push('/admin/dashboard')
     }
+    this.props.getAdmin();
   }
 
 
@@ -53,4 +55,4 @@ const mapStateToProps=state=>({
 })
 
 
-export default connect(mapStateToProps)(Admin);
+export default connect(mapStateToProps,{getAdmin})(Admin);

@@ -43,16 +43,16 @@ var svg = d3.select("#barchart")
           "translate(" + margin.left + "," + margin.top + ")");
 
 var dataSet=[
-    {"Country": "Cocunut Oil ", "Value": 20},
-    {"Country": "Ashirvad ", "Value": 15},
-    {"Country": "HMT Rice ", "Value": 4},
-    {"Country": "Everest Masala", "Value": 10},
-    {"Country": "Red Label Tea ", "Value": 8}
+    {"Title": "Cocunut Oil ", "Order": 20},
+    {"Title": "Ashirvad ", "Order": 15},
+    {"Title": "HMT Rice ", "Order": 4},
+    {"Title": "Everest Masala", "Order": 10},
+    {"Title": "Red Label Tea ", "Order": 8}
 ]
-var data=dataSet.sort(function(a, b) { return b.Value - a.Value; });
+var data=dataSet.sort(function(a, b) { return b.Order - a.Order; });
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return d.Value; })])
+    .domain([0, d3.max(data, function(d) { return d.Order; })])
     .range([ 0, width]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -64,7 +64,7 @@ var data=dataSet.sort(function(a, b) { return b.Value - a.Value; });
   // Y axis
   var y = d3.scaleBand()
     .range([ 0, height ])
-    .domain(data.map(function(d) { return d.Country; }))
+    .domain(data.map(function(d) { return d.Title; }))
     .padding(.2);
   svg.append("g")
     .call(d3.axisLeft(y))
@@ -75,16 +75,16 @@ var data=dataSet.sort(function(a, b) { return b.Value - a.Value; });
     .enter()
     .append("rect")
     .attr("x", x(0) )
-    .attr("y", function(d) { return y(d.Country); })
-    .attr("width", function(d) { return x(d.Value); })
+    .attr("y", function(d) { return y(d.Title); })
+    .attr("width", function(d) { return x(d.Order); })
     .attr("height", y.bandwidth() )
     .attr("fill", "#69b3a2")
 
 
-    // .attr("x", function(d) { return x(d.Country); })
-    // .attr("y", function(d) { return y(d.Value); })
+    // .attr("x", function(d) { return x(d.Title); })
+    // .attr("y", function(d) { return y(d.Order); })
     // .attr("width", x.bandwidth())
-    // .attr("height", function(d) { return height - y(d.Value); })
+    // .attr("height", function(d) { return height - y(d.Order); })
     // .attr("fill", "#69b3a2")
 
 

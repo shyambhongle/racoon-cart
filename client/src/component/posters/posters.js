@@ -3,17 +3,16 @@ import styles from './posters.module.css';
 import Poster from './poster/poster.js';
 
 //import images
-import poster1 from './../../assets/media/mango.jpg';
-import poster2 from './../../assets/media/cream.jpg';
-import poster3 from './../../assets/media/organic.jpg';
+
 
 
 const Posters=(props)=>{
+  let newPoster=props.poster.map((i,index)=>{
+    return <Poster key={index} style={props.style} src={i.poster} title={i.title}/>
+  })
   return(
     <div className={styles.Poster}>
-      <Poster style={props.style} src={poster1}/>
-      <Poster style={props.style} src={poster2}/>
-      <Poster style={props.style} src={poster3}/>
+      {newPoster}
     </div>
   )
 }

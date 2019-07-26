@@ -8,6 +8,7 @@ const Poster =(props)=>{
   return(
     <div className={styles.Poster}style={props.style}>
       <img src={props.src} alt="poster"/>
+      <p>{props.title}</p>
     </div>
   )
 }

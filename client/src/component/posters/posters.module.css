@@ -4,4 +4,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }

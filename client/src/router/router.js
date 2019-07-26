@@ -5,6 +5,7 @@ import PastOrder from './../component/past/past.js';
 import Section from './../component/section/section.js';
 import Checkout from './../component/checkout/checkout.js';
 import Cart from './../component/cart/cart.js';
+import Footer from './../component/footer/footer.js';
 import Auth from './../component/auth/auth.js';
 import Alert from './../component/alert/alert.js';
 import Search from './../component/search/search.js';
@@ -58,6 +59,7 @@ class Router extends Component{
           <Route path='/search' exact component={Search}/>
           <Route path='/' exact component={Section}/>
         </Switch>
+        <Route path='/' exact component={Footer}/>
       </Fragment>
     )
   }

@@ -77,6 +77,7 @@ componentWillMount(props){
       details:"",
       imgid:""
     })
+    document.getElementById("adminForm").reset();
   }
 
 
@@ -88,7 +89,7 @@ componentWillMount(props){
       <div className={styles.AddProduct}>
         <div className={styles.AddForm}>
           <div className={styles.FormTitle}><p>{this.props.title}</p></div>
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={this.submitHandler} id="adminForm">
             <div className={styles.FormInput}>
               <label htmlFor="title">Product Title</label>
               <input id="title" name="title" value={this.state.title} type="text"
@@ -116,9 +117,9 @@ componentWillMount(props){
               <label htmlFor="category">Category</label>
               <select id="category" name="category" value={this.state.category} onChange={this.changeHandler} >
                 <option value="none" >No category</option>
-                <option value="bestSelling">Best selling</option>
-                <option value="trending">Trending</option>
-                <option value="greatDeals" >Great deals</option>
+                <option value="BEST SELLING">Best selling</option>
+                <option value="TRENDING">Trending</option>
+                <option value="GREAT DEALS" >Great deals</option>
               </select>
               <label htmlFor="search">Search</label>
               <input id="search" name="search" type="text" value={this.state.search}  placeholder=" eg. tea" onChange={this.changeHandler} required/>

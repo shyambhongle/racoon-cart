@@ -17,7 +17,8 @@ const stripeBtn = (props) => {
     cartItems:newCart,
     totalItems:props.products.totalItems,
     date:new Date(),
-    address:props.address
+    address:props.address,
+    city:props.control.city
   }
   const onToken = token => {
     const body = {
@@ -46,7 +47,8 @@ const stripeBtn = (props) => {
 
 const mapStateToProps=state=>({
   user:state.auth.user.email,
-  products:state.products
+  products:state.products,
+  control:state.flow
 })
 
 export default connect(mapStateToProps,{placeOrder})(withRouter(stripeBtn));

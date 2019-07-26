@@ -1,29 +1,35 @@
 .Products{
-  display: flex;
-  flex-direction:column;
-  width:95%;
+  width:87%;
   height: auto;
   margin:auto;
   margin-bottom:7vh;
+  margin-top: 3%;
+}
+
+.Products button::before{
+  color: #333333;
 }
 
 .Label{
   width: 100%;
   height: 10vh;
-  display: inline-flex;
+  display:flex;
+  justify-content: center;
   align-items:center;
 }
 
 .Label p{
-  color: #262626;
+  color: #333333;
   font-size:180%;
   font-weight: lighter;
   padding-bottom: 10px;
+  letter-spacing: 1px;
+  word-spacing: 10px;
 }
 
-.LabelProducts{
-  width: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: hidden;
+.Label span{
+  width:60px;
+  height: 2px;
+  background-color:#333333;
+  margin: 15px;
 }

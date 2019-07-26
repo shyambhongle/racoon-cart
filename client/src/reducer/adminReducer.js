@@ -1,8 +1,11 @@
-import {EDIT_SEARCH,CLEAR_ITEM,ADMIN_LOADING} from './../action/actionType.js';
+import {EDIT_SEARCH,CLEAR_ITEM,ADMIN_LOADING,GET_ADMIN} from './../action/actionType.js';
 
 const initialState={
   item:{},
-  loading:false
+  loading:false,
+  city:{},
+  top:[],
+  Orders:0
 }
 
 const admin=(state=initialState,action)=>{
@@ -17,12 +20,20 @@ const admin=(state=initialState,action)=>{
           ...state,
           loading:action.payload
         }
-      case  CLEAR_ITEM:{
+      case  CLEAR_ITEM:
         return{
           ...state,
           item:{}
         }
-      }
+      case GET_ADMIN:
+      console.log("reached");
+      console.log(action.payload);
+        return{
+          ...state,
+          city:action.payload.city,
+          Orders:action.payload.Orders,
+          top:action.payload.top
+        }
     default:
     return state;
   }

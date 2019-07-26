@@ -19,6 +19,6 @@ export const inputSearch=(words)=>{
 export const inputClick=(data,history)=>{
   return dispatch=>{
     dispatch({type:INPUT_CLICK,payload:data});
-    //history.push('/search')
+    history.push('/search')
   };
 }

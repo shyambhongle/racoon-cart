@@ -1,4 +1,4 @@
-import {EDIT_SEARCH,ALERT,ADMIN_LOADING,CLEAR_SEARCH} from './actionType.js';
+import {EDIT_SEARCH,ALERT,ADMIN_LOADING,CLEAR_SEARCH,GET_ADMIN} from './actionType.js';
 import axios from 'axios';
 
 
@@ -41,5 +41,15 @@ export const deleteProduct=(data)=>{
             dispatch({type:ALERT,payload:'Product deleted.'})
             dispatch({type:ADMIN_LOADING,payload:false});
           })
+  }
+}
+
+
+export const getAdmin=()=>{
+  return dispatch=>{
+    axios.get('/admin/getadmin')
+         .then(result=>{
+           dispatch({type:GET_ADMIN,payload:result.data})
+         })
   }
 }

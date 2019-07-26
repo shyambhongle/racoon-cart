@@ -7,7 +7,7 @@ const Product =require('./../models/product.js');
 
 
 router.get('/',(req,res)=>{
-  Product.find({category:{ $in: ['trending', 'bestSelling'] }})
+  Product.find({category:{ $in: ['TRENDING', 'BEST SELLING','GREAT DEALS'] }})
           .exec()
           .then(products=>{res.json({allProducts:products})})
 })

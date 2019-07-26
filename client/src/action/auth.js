@@ -15,7 +15,7 @@ export const registerUser = (userData) => dispatch => {
       setAuthToken(token);
       let decoded = jwt_decode(token);
       let details={
-        order:res.data.order,
+        order:res.data.orders,
         cart:res.data.cart
       }
       dispatch({type:LOGIN_CART,payload:res.data.cart})
@@ -45,7 +45,7 @@ export const loginUser = userData => dispatch => {
       setAuthToken(token);
       let decoded = jwt_decode(token);
       let details={
-        order:res.data.order,
+        order:res.data.orders,
         cart:res.data.cart
       }
       dispatch({type:LOGIN_CART,payload:res.data.cart})
