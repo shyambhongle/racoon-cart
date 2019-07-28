@@ -37,23 +37,27 @@ const Banner=(props)=>{
       }
     }
 
+    const dumyClick=()=>{
+      props.history.push('/dumb');
+    }
+
 
   return(
     <div className={styles.BannerWrapper}>
       <div className={styles.NavigationPannel}>
         <Category style={CategoryStyle}/>
         <div className={styles.NavHeader} onClick={pastPurchase}>PAST PURCHASES</div>
-        <div className={styles.NavHeader}>GIFTING</div>
-        <div className={styles.NavHeader}>REWARDS</div>
-        <div className={styles.NavHeader}>BLOG</div>
-        <div className={styles.NavHeader}>OFFERS</div>
+        <div className={styles.NavHeader} onClick={dumyClick}>GIFTING</div>
+        <div className={styles.NavHeader} onClick={dumyClick}>REWARDS</div>
+        <div className={styles.NavHeader} onClick={dumyClick}>BLOG</div>
+        <div className={styles.NavHeader} onClick={dumyClick}>OFFERS</div>
       </div>
       <Slider {...settings}>
-        <img src={Banner1} alt="" className={styles.BannerImage}/>
-        <img src={Banner2} alt="" className={styles.BannerImage}/>
-        <img src={Banner3} alt="" className={styles.BannerImage}/>
-        <img src={Banner4} alt="" className={styles.BannerImage}/>
-        <img src={Banner5} alt="" className={styles.BannerImage}/>
+        <img src={Banner1} alt="" className={styles.BannerImage} onClick={dumyClick}/>
+        <img src={Banner2} alt="" className={styles.BannerImage} onClick={dumyClick}/>
+        <img src={Banner3} alt="" className={styles.BannerImage} onClick={dumyClick}/>
+        <img src={Banner4} alt="" className={styles.BannerImage} onClick={dumyClick}/>
+        <img src={Banner5} alt="" className={styles.BannerImage} onClick={dumyClick}/>
       </Slider>
   </div>
   )

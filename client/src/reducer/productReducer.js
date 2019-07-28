@@ -126,15 +126,19 @@ const productReducer=(state=initialState,action)=>{
       if (state.cartItems.length!==0) {
         return {...state}
       }
-      if (action.payload.length!==0) {
+      if (action.payload[0].cartItems.length!==0) {
+      state.allProducts.map(id=>{
+          return action.payload[0].cartItems.map(item=>{
+           return item._id===id._id?id.qty=1:null;
+        })
+      })
+    }
         return {
           ...state,
           cartItems:action.payload[0].cartItems,
           totalItems:action.payload[0].totalItems,
           totalPrice:action.payload[0].totalPrice
         };
-      }
-      return state;
       default:
       return state;
   }

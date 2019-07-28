@@ -47,6 +47,12 @@ class Avatar extends Component{
     this.props.history.push('/pastorders')
   }
 
+   dumyClick=()=>{
+     this.setState({
+       isFocus:false
+     })
+    this.props.history.push('/dumb');
+  }
 
 
   render(){
@@ -76,12 +82,12 @@ class Avatar extends Component{
             My Orders
           </div>
           <div className={styles.OtherButton} onClick={()=>{
-              this.props.auth.isAuthenticated!==false?this.myaccount():this.props.click()
+              this.props.auth.isAuthenticated!==false?this.dumyClick():this.props.click()
             }}>
           <img src={Discount} alt="Cards"/>
           Gift Cards</div>
           <div className={styles.OtherButton} onClick={()=>{
-              this.props.auth.isAuthenticated!==false?this.myaccount():this.props.click()
+              this.props.auth.isAuthenticated!==false?this.dumyClick():this.props.click()
             }}>
           <img src={Wallet} alt="Wallet"/>
           Wallet</div>

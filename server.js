@@ -56,7 +56,6 @@ app.use('/profile',profile);
 
 
 
-
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
@@ -67,6 +66,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-
 const port = process.env.PORT || 5000;
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
