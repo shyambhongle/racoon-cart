@@ -12,11 +12,13 @@
 .SidePanel .Avatar{
   width: 30%;
   height: 14%;
-  background-color: white;
+  background: url('./../../../assets/icons/user.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   margin-top: 15%;
   margin-bottom: 5%;
   border-radius: 50%;
-  border: 1px solid rgba(102, 97, 91, 0.3);
 }
 
 .SidePanel .Email{

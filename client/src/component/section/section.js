@@ -40,7 +40,8 @@ const Section =(props)=>{
 }
 
 const mapStateToProps=state=>({
-  product:state.products.allProducts
+  product:state.products.allProducts,
+  auth:state.auth
 })
 
 export default connect(mapStateToProps)(Section);

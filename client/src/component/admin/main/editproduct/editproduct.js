@@ -12,7 +12,7 @@ const EditProduct =(props)=>{
       {props.admin.loading && <Loader/>}
       <div className={styles.SearchHeader}>
         <p>Search Product to be edited</p>
-      <SearchBar/>
+      <SearchBar test={true}/>
       </div>
       <div className={styles.Section}>
       {Object.keys(props.admin.item).length===0?<Search external={"Edit"}/>:

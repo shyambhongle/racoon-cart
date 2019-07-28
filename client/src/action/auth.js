@@ -1,4 +1,4 @@
-import { GET_ERRORS,LOGIN,CLOSE_FLOW,CLEAR_ERRORS,ALERT,PLACE_ORDER,ADMIN,LOGIN_CART,CLEAR_CART} from './actionType';
+import { GET_ERRORS,LOGIN,CLOSE_FLOW,CLEAR_ERRORS,ALERT,ADMIN,LOGIN_CART,CLEAR_CART} from './actionType';
 import axios from 'axios';
 import setAuthToken from './../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
@@ -20,7 +20,6 @@ export const registerUser = (userData) => dispatch => {
       }
       dispatch({type:LOGIN_CART,payload:res.data.cart})
       dispatch(setCurrentUser(decoded,details));
-      dispatch({type:PLACE_ORDER,payload:{orders:res.data.order}});
       dispatch({type:ALERT,payload:`Loged in as ${decoded.email}`})
       if (decoded.pass!=="user") {
         dispatch({type:ADMIN})
@@ -50,7 +49,6 @@ export const loginUser = userData => dispatch => {
       }
       dispatch({type:LOGIN_CART,payload:res.data.cart})
       dispatch(setCurrentUser(decoded,details));
-      dispatch({type:PLACE_ORDER,payload:{orders:res.data.order}});
       dispatch({type:ALERT,payload:`Loged in as ${decoded.email}`})
       if (res.data.pass===false) {
         dispatch({type:ADMIN})

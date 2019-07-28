@@ -6,9 +6,9 @@ import Empty from './../../assets/media/emptycart.gif';
 
 const PastOrder =(props)=>{
   let orders;
-  if (props.past.pastOrder.length!==0) {
+  if (props.auth.orders.length!==0) {
 
-    orders=props.past.pastOrder.map((item,i)=>{
+    orders=props.auth.orders.map((item,i)=>{
       let sproduct=item.cartItems.map(s=>{
          return (<ProductList
           key={s._id}
@@ -43,9 +43,9 @@ const PastOrder =(props)=>{
   return(
     <div className={styles.PastContainer}>
       <div className={styles.PastTitle}>
-      <span>{props.past.pastOrder.length===0?"No Past Orders":"Your past Orders."}</span>
+      <span>{props.auth.orders.length===0?"No Past Orders":"Your past Orders."}</span>
       </div>
-      {props.past.pastOrder.length===0?<div className={styles.EmptyCart}><img src={Empty} alt="0"/></div>:<div className={styles.PastOrders}>
+      {props.auth.orders.length===0?<div className={styles.EmptyCart}><img src={Empty} alt="0"/></div>:<div className={styles.PastOrders}>
         {orders}
       </div>}
     </div>
@@ -53,7 +53,7 @@ const PastOrder =(props)=>{
 }
 
 const mapStateToProps=state=>({
-  past:state.past
+  auth:state.auth
 })
 
 export default connect(mapStateToProps)(PastOrder);

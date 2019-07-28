@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './checkoutheader.module.css';
-import SmallLogo from './../../../assets/small.PNG';
+import SmallLogo from './../../../assets/icons/raccoon.svg';
 
 const CheckOutHeader =(props)=>{
 

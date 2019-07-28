@@ -1,7 +1,7 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import {connect} from 'react-redux';
-import LogoImg from './../../../assets/small.PNG';
+import LogoImg from './../../../assets/icons/raccoon.svg';
 import {withRouter} from 'react-router-dom';
 import {placeOrder} from './../../../action/checkout.js';
 
@@ -22,7 +22,7 @@ const stripeBtn = (props) => {
   }
   const onToken = token => {
     const body = {
-      amount: 999,
+      amount: props.products.totalPrice*100,
       token: token,
       details
   };
@@ -34,8 +34,9 @@ const stripeBtn = (props) => {
       name="Raccon Cart" //Modal Header
       description="Pay securely using stripe."
       panelLabel="Payment" //Submit button in modal
-      amount={999} //Amount in cents $9.99
+      amount={props.products.totalPrice*100}
       token={onToken}
+      currency="INR"
       stripeKey={publishableKey}
       billingAddress={false}
       email={props.user}

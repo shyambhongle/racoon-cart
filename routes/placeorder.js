@@ -44,7 +44,7 @@ router.post('/',passport.authenticate('jwt',{session:false}),(req,res)=>{
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
-    currency: "usd"
+    currency: "inr"
   };
   stripe.charges.create(body, stripeChargeCallback(res,req));
 });

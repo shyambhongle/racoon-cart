@@ -4,6 +4,7 @@ import AvatarIcon from './../../assets/icons/avatar.svg';
 import CheckList from './../../assets/icons/list.svg';
 import Login from './../../assets/icons/login.svg';
 import Discount from './../../assets/icons/discount.svg';
+import Wallet from './../../assets/icons/wallet.svg';
 import Logout from './../../assets/icons/logout.svg';
 import {connect} from 'react-redux'
 import {logoutUser} from './../../action/auth.js';
@@ -47,6 +48,7 @@ class Avatar extends Component{
   }
 
 
+
   render(){
     return(
       <div className={styles.AvatarBox}>
@@ -67,13 +69,22 @@ class Avatar extends Component{
             <img src={Login} alt="Login"/>
             {this.props.auth.user.email}
           </div>}
-          <div className={styles.OtherButton}>
-            <img src={CheckList} alt="Check list"/>
-            Check list
+          <div className={styles.OtherButton} onClick={()=>{
+              this.props.auth.isAuthenticated!==false?this.myaccount():this.props.click()
+            }}>
+            <img src={CheckList} alt="MY Orders"/>
+            My Orders
           </div>
-          <div className={styles.OtherButton}>
-          <img src={Discount} alt="Discount"/>
-          Discount</div>
+          <div className={styles.OtherButton} onClick={()=>{
+              this.props.auth.isAuthenticated!==false?this.myaccount():this.props.click()
+            }}>
+          <img src={Discount} alt="Cards"/>
+          Gift Cards</div>
+          <div className={styles.OtherButton} onClick={()=>{
+              this.props.auth.isAuthenticated!==false?this.myaccount():this.props.click()
+            }}>
+          <img src={Wallet} alt="Wallet"/>
+          Wallet</div>
         {this.props.auth.isAuthenticated!==false && <div className={styles.OtherButton}
         onClick={this.logoutUser}>
         <img src={Logout} alt="Logout"/>

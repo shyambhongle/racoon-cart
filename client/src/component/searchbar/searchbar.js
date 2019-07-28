@@ -23,7 +23,9 @@ class SearchBar extends Component{
   }
 
   onChangeHandler=(e)=>{
-    this.props.inputSearch(e.target.value)
+    if (e.target.value.length>1) {
+      this.props.inputSearch(e.target.value)
+    }
     if (e.target.value.length>2) {
       this.focusHandler();
     }
@@ -33,16 +35,24 @@ class SearchBar extends Component{
   searchHandler=(product)=>{
     let searchedProduct=[];
     searchedProduct.push(product);
-    this.props.inputClick(searchedProduct,this.props.history);
+    this.props.inputClick(searchedProduct,this.props.history,this.props.test);
     this.blurHandler()
   }
 
   searchClick=(product)=>{
     if (product.length!==0) {
-      this.props.inputClick(product,this.props.history);
+      this.props.inputClick(product,this.props.history,this.props.test);
       this.blurHandler()
     }
   }
+
+  keyPressed=(event)=>{
+    if (event.key === "Enter") {
+      this.searchClick(this.props.search)
+    }
+  }
+
+
 
 
 
@@ -69,7 +79,8 @@ class SearchBar extends Component{
           onClick={this.blurHandler}></div>}
         <div className= {styles.search}>
           <input type = "search" name = "value" placeholder = "Search for products"
-             onChange={this.onChangeHandler}/>
+             onChange={this.onChangeHandler}
+             onKeyPress={this.keyPressed}/>
            <button type = "button" onClick={()=>{this.searchClick(this.props.search)}}>
             <img src={SearchIcon} alt="search"/>
           </button>

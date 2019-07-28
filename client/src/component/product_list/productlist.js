@@ -17,7 +17,7 @@ const ProductList=(props)=>{
         </div>
         <div className={styles.Details}>
           <div className={styles.Discount}>
-            <p>{props.sync.discount}% OFF</p>
+            <p>{Math.round(props.sync.discount)}% OFF</p>
             <span onClick={props.remove} style={{"display":props.visible && "none"}}
               className={styles.Close}></span>
           </div>

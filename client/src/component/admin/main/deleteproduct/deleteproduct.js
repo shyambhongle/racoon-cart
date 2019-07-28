@@ -11,7 +11,7 @@ const DeleteProduct =(props)=>{
       {props.admin.loading && <Loader/>}
       <div className={styles.SearchHeader}>
         <p>Search Product to be deleted</p>
-      <SearchBar/>
+      <SearchBar  test={true}/>
       </div>
       <div className={styles.Section}>
       <Search external={"Delete"}/>

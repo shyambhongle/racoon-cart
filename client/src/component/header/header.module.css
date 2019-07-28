@@ -19,8 +19,8 @@
 
 .BrandLogo{
   width: 65%;
-  height: 70%;
-  transform: translateX(-20px);
+  height: 50%;
+  transform: translateX(-10px);
   cursor: pointer;
 }
 
