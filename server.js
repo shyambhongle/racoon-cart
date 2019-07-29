@@ -19,7 +19,7 @@ mongoose
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname, "client/build")))
 
 
 
@@ -56,7 +56,7 @@ app.use('/profile',profile);
 
 
 
-app.use(express.static(path.join(__dirname, "client/build")))
+
 
 
 const port = process.env.PORT || 5000;
