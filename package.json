@@ -9,19 +9,10 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild":
-      "NPM_CONFIG_PRODUCTION=true npm install --prefix client && npm run build --prefix client"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shyambhongle/racoon-cart.git"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/shyambhongle/racoon-cart/issues"
-  },
-  "homepage": "https://github.com/shyambhongle/racoon-cart#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.14.0",
