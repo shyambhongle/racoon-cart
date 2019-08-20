@@ -1,0 +1,19 @@
+.CartCount{
+  padding: 1% 5%;
+  border-radius: 16px;
+  background-color: tomato;
+  color: white;
+  font-size: 90%;
+  position:absolute;
+  right: 20%;
+  top:0px;
+  animation: visibility 0.3s linear;
+  visibility: hidden;
+}
+
+
+@keyframes fade {
+  0%{ opacity: 0;transform: translateY(-5vh)}
+  40% { opacity: 1;}
+  100% {transform: translateY(0px)}
+}

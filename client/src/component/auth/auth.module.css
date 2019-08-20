@@ -1,0 +1,67 @@
+.AuthBox{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left:0px;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Close{
+  width: 16px;
+  height: 16px;
+  background:url('./../../assets/icons/cancel.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 28vw;
+  top: 8vh;
+  cursor: pointer;
+}
+
+.Overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.9);
+  opacity: 0.6;
+}
+
+.AuthConatiner{
+  width: 38%;
+  height: 80%;
+  background-color: white;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.Header{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.Header span{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #262626;
+  font-size: 100%;
+  letter-spacing: 1px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  width: 50%;
+  cursor: pointer;
+}
+
+.AuthBody{
+  width: 100%;
+  height: 90%;
+}

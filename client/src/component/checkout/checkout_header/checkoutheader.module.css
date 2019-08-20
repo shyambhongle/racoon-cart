@@ -1,0 +1,73 @@
+.CheckOutHeader{
+  width: 100%;
+  height:16vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 0.5px solid rgba(0,0,0,0.15)
+}
+
+.CheckOutHeader .SmallLogo{
+  width: 4%;
+  height: 70%;
+  margin-right: 10%;
+  cursor: pointer;
+}
+
+.CheckOutHeader .PlaceHolder{
+  width: 38%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PlaceHolder .Title{
+  color: #696B79;
+  font-size: 90%;
+  letter-spacing: 1px;
+  font-family: Whitney;
+  margin: 0 5px;
+  font-weight:300;
+  line-height: 25px;
+}
+
+.PlaceHolder .Divider{
+  color: #696B79;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+ .Done{
+  color:#4caf50  ;
+  font-size: 90%;
+  letter-spacing: 1px;
+  font-family: Whitney;
+  margin: 0 5px;
+  font-weight:300;
+  line-height: 25px;
+}
+
+
+.CheckOutHeader .Assure{
+  width: 15%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Assure .AssureLogo{
+  width: 25%;
+  height: 60%;
+  background: url('./../../../assets/icons/shield.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.Assure p{
+  color:#535766;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  font-size: 90%;
+}

@@ -1,0 +1,63 @@
+footer{
+  width: 93vw;
+  margin: auto;
+  height: auto;
+  margin-top: 7vh;
+}
+
+.FooterHeader{
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+.FooterHeader p{
+  font-size: 130%;
+  letter-spacing: 1px;
+  color:#656565;
+  font-weight: bold;
+}
+
+
+.FooterData{
+  width: 100%;
+  height: 15vh;
+  margin-bottom: 1.5vh;
+}
+
+
+.FooterData .DataHeader{
+  width: 80%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  font-size: 80%;
+  color: #777777;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.FooterData .DataSection{
+  width: 80%;
+  height: 40%;
+  font-size: 70%;
+  color: #888888;
+  letter-spacing: 1px;
+  line-height: 18px;
+}
+
+
+.CopyRight{
+  display: inline-block;
+  width: auto;
+  font-size: 14px;
+  color: #888888;
+  margin-bottom:2vh;
+  transform: translateY(-5vh);
+  position: relative;
+  left: 85%;
+  top: 5vh;
+}

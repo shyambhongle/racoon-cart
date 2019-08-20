@@ -1,0 +1,36 @@
+.SearchContainer{
+  width: 100%;
+  height: 80vh;
+}
+
+.SearchWrapper{
+  width: 90%;
+  margin: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.SearchWrapper .SearchTitle{
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+}
+
+.SearchTitle p{
+  margin-left: 2%;
+  color: #262626;
+  font-size: 150%;
+  text-transform: capitalize;
+}
+
+.SearchWrapper .SearchSection{
+  height: auto;
+  width:auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.SearchWrapper .SearchSection > * {
+  margin: 2vh 2vw;
+}

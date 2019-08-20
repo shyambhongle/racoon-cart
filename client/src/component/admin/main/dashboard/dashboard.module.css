@@ -1,0 +1,90 @@
+.OrderHeader{
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  margin-bottom: 20vh;
+}
+
+.OrderHeader .TotalOrders{
+  width:55%;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 300%;
+  color: #262626;
+}
+
+.OrderHeader .TotalOrders p{
+  font-size: 100%;
+  color: #262626;
+}
+
+.OrderHeader .TotalOrders .TotalOdetails{
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.TotalOdetails .SingleDetails{
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.TotalOdetails .SingleDetails span{
+  width: 7%;
+  height: 38%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.TotalOdetails  .SingleDetails p{
+  font-size: 50%;
+  color: #262626;
+}
+
+
+
+.ListHeader{
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  margin-bottom: 20vh;
+}
+
+.ListHeader .ListOrders{
+  width:55%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  font-size: 200%;
+  color: #262626;
+}
+
+.ListOrders p{
+  margin-top: 30%;
+}
+
+
+.MonthHeader{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70vh;
+  margin-bottom: 20vh;
+}
+
+.MonthHeader .MonthList{
+  width:100%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  font-size: 200%;
+  color: #262626;
+}

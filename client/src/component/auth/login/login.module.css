@@ -1,0 +1,109 @@
+.LoginContainer{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.LoginHeader{
+  margin-top: 10%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  color: #323232;
+  font-weight: bold;
+}
+
+.LoginForm{
+  height: 80%;
+  width: 100%;
+}
+.LoginForm form{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginForm  form .FormInput{
+  width: 70%;
+  height: 12%;
+  position: relative;
+  margin: 3% 0px;
+}
+
+.LoginForm  form input{
+  width: 100%;
+  height: 100%;
+
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  font-size: 14px;
+  padding: .8em 0.8em;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  margin:0;
+  border-radius: 3px;
+}
+
+.FormInput label{
+  position: absolute;
+  background-color: white;
+  left: 5%;
+  top: -22%;
+  padding: 0.1% 2%;
+  font-size: 15px;
+  color: #999;
+  font-weight: 400;
+}
+
+.LoginForm form button{
+   height:50px;
+   width:70%;
+   border-radius:3px;
+   border:rgba(0,0,0,.3) 0px solid;
+   box-sizing:border-box;
+   padding:10px;
+   margin-bottom:30px;
+   background:#7cb342 ;
+   color:#FFF;
+   font-weight:bold;
+   font-size: 130%;
+   transition:background .4s;
+   cursor:pointer;
+   letter-spacing: 1px;
+}
+
+.LoginForm form button:hover{
+  background:#689f38 ;
+}
+
+.Toogle{
+  color: #323232;
+  letter-spacing: 0.5px;
+}
+
+.Toogle p{
+  color: #6495ed;
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+  cursor: pointer;
+}
+.errorText{
+  color: red;
+  font-size: 12px;
+  width: 70%;
+  display: none;
+  margin:0px auto;
+  text-align: left;
+  transform: translateY(-10px);
+}

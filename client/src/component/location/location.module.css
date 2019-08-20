@@ -1,0 +1,197 @@
+.LocationWrapper{
+  height: 100%;
+  width: 8%;
+  margin-right: 10px;
+  position: relative;
+}
+
+.BlurOverlay{
+  width: 120vw;
+  height: 100%;
+  position: fixed;
+  z-index:1;
+  transform: translateX(-26%);
+}
+
+
+
+.Holder{
+  height: 35%;
+  width: 100%;
+  position: relative;
+  margin-top:33px;
+}
+
+.Holder .Placeholder{
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Placeholder .Text{
+  font-size: 1em;
+  color: #282C3F;
+  font-weight: 500;
+  font-family: Whitney;
+  font-weight: bold;
+}
+
+.Placeholder .IconGps{
+  height: 15px;
+  width: 15px;
+  background: url('./../../assets/icons/gps.svg');
+  background-position: center;
+  background-size: cover;
+}
+
+
+.Placeholder .IconArrow{
+  height: 0.5em;
+  width: 0.8em;
+  background: url('./../../assets/icons/arrow.svg');
+  background-position: center;
+  background-size: cover;
+  margin-left: 8px;
+  margin-top: 5px;
+}
+
+
+ .Conatiner{
+  position: absolute;
+  width: 28vw;
+  height: 300px;
+  top: 100%;
+  transform:translateX(-35%);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+  border-radius: 3px;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid rgba(0,0,0,.07);
+}
+
+
+
+
+.ContainerWrapper{
+  width: 100%;
+  height:auto;
+  background-color: white;
+  position: relative;
+  border-radius: 3px;
+
+}
+
+
+.ContainerWrapper .Locator{
+  width: 70px;
+  height: 4px;
+  background-color: tomato;
+  position: absolute;
+  left: 38%;
+  top: -19px;
+}
+
+.ContainerWrapper p{
+  text-align: center;
+  color: #333333;
+  font-size: 17px;
+}
+
+.Selected{
+  width: 80%;
+  margin: auto;
+  margin-top: 3%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.4);
+  border-radius: 3px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.SelectedIcon{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgba(255,151,25,0.7);
+  position: relative;
+  margin-left: 25px;
+  margin-right: 7px;
+}
+
+.SelectedIcon img{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -4px;
+}
+
+.Checked{
+  width: 18px;
+  height: 18px;
+  background: url('./../../assets/icons/checked.svg');
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  right: 20px;
+}
+
+.Selected .TextColor{
+  color:#ffbf00;
+  margin-left: 5px;
+}
+
+.OtherCity{
+  width: 100%;
+  height: 50px;
+  margin-top: 7%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Hdivider{
+  width: 30px;
+  height: 2px;
+  background-color:#333333;
+  margin: 5px;
+  margin-top: 7px;
+}
+
+.NewCity{
+  width: 90%;
+  height: 80px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.SelectedIcons{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color:rgba(102,255,255,0.5);
+  position: relative;
+  margin-left: 15px;
+  margin-right: 7px;
+  cursor: pointer;
+}
+
+.SelectedIcons img{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -4px;
+}
+
+
+.SelectedIcons p{
+  position: absolute;
+  font-family: Whitney;
+  font-size: 1em;
+  bottom: -35px;
+}

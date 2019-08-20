@@ -1,0 +1,124 @@
+.AvatarBox{
+  width: 70px;
+  height: 100%;
+  margin-left: 20px;
+  position: relative;
+}
+
+.BlurOverlay{
+  width: 120vw;
+  height: 100%;
+  position: fixed;
+  z-index:1;
+  left: 0px;
+}
+
+
+.AvatarIcon{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 33%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.AvatarIcon img{
+  height: 40%;
+  width: 40%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.AvatarIcon p{
+  color: #333333;
+  font-size: 13px;
+  display: inline-block;
+  padding-top: 5px;
+  margin: 0px;
+  font-weight: bolder;
+}
+
+
+.ProfileContainer{
+  width:276px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+  position: absolute;
+  top: 100%;
+  left:-200px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid rgba(0,0,0,.07);
+
+}
+
+.Locator{
+  width: 40px;
+  height: 4px;
+  background-color: tomato;
+  position: absolute;
+  right: 8%;
+  top: -3px;
+}
+
+.AuthButton{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+  background-color: white;
+
+}
+
+.AuthButton button{
+  padding:4% 20%;
+  outline: none;
+  border:none;
+  background-color: #f57c00 ;
+  color: white;
+  font-size: 16px;
+  border-radius: 3px;
+  font-family: Whitney;
+  font-weight:bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.AuthButton button:hover{
+  background-color: #ef6c00 ;
+}
+
+.OtherButton{
+  width: 100%;
+  height: 45px;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+  display: flex;
+  align-items: center;
+  color:#666666;
+  font-size: 15px;
+  font-family: Whitney;
+  cursor: pointer;
+}
+
+.OtherButton:hover{
+  background-color: rgba(0,0,0,.05);
+}
+
+
+
+
+.OtherButton img{
+  height: 16px;
+  width: 16px;
+  margin-left: 22px;
+  margin-right: 10px;
+}

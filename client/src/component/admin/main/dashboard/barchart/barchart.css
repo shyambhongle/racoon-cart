@@ -1,0 +1,9 @@
+#barchart text{
+  font-size: 100%;
+  color:#262626;
+  font-weight: bold;
+}
+
+#barchart svg{
+padding: 25px;
+}
